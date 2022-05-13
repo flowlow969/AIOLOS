@@ -25,7 +25,7 @@ unsigned long IntigrationTime = 1000; //Periodendauer der Messung
 
 unsigned int readingId = 0; //Messungs Zähler Init
 
-constexpr char WIFI_SSID[] = "Panama"; //WIFI name
+constexpr char WIFI_SSID[] = "dreagerguest"; //WIFI name
 
 int32_t getWiFiChannel(const char *ssid) {
   if (int32_t n = WiFi.scanNetworks()) {
