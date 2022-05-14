@@ -18,16 +18,25 @@ def home(request):
     #     liste.append(dataset)
     # print(liste)
         dataset = sen.daten_set.all()
+
+        flag = 0
         for data in dataset:
             sen_info = sen.esbid_type.split("_")
             esp_num = sen_info[0]
             sen_type = sen_info[1]
+
+            if flag == 0:
+                data_liste.append(esp_num)
+                data_liste.append(sen_type)
+                flag = 1
+
             data_liste.append(data.messwert)
             #print(esp_num, sen_type, data.messwert)
-        sen_liste.append([esp_num, sen_type, data_liste])
+        sen_liste.append(data_liste)
+        data_liste = []
+
     print(sen_liste)
-        #print("!!!!!", sen, ":", dataset.messwert)
-        #dataset.objects.get()
+
  
 
 
@@ -39,8 +48,7 @@ def home(request):
     
     #datas = Daten.objects.all()
 
-
-    return render(request, 'home.html', {'sen_liste' : sen_liste})
+    return render(request, 'home.html', {})
 
 
 def feed_data(request):
