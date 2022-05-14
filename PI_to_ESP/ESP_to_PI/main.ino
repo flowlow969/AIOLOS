@@ -1,22 +1,19 @@
-#include <structs.h>
+#include "structs.h"
+#include "Device_config.h"
 
-#define DEBUG
 
-#ifdef DEBUG
+
   
-#endif
-
-
 
 void setup() {
   Serial.begin(115200);
   
+  myDebug("The sensores is warming up...");
   delay(30000); //warming up the sensores
-  #ifdef DEBUG
-  Serial.println("The sensores is warming up...");
-  #endif
+  myDebug("done");
 
 
+}
 void loop() {
-  mesh.update();
+  MeshUpdate();
 }
