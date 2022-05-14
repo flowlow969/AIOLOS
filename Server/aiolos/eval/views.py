@@ -55,6 +55,7 @@ def home(request):
     print("!!!!",esp_id_liste_no_dup)
     print(sen_liste)
 
+    
 
     return render(request, 'home.html', {"sen_liste": sen_liste, 'esp_id_list_no_dup': esp_id_liste_no_dup, 'sensors': sensors, 'sensorsZero': sensorsZero, 'sensorsOne': sensorsOne, 'sensorsTwo': sensorsTwo, 'sensorsThree': sensorsThree })  #alle ids als liste,   
 
