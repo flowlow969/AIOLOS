@@ -10,6 +10,8 @@ from eval.models import Sensor, Daten
 def home(request):
     sen_liste = []
     data_liste = []
+    esp_id_liste = []
+    esp_id_liste_no_dup = []
 
     sensors = Sensor.objects.all()
     datenobj = Daten.objects.all()
@@ -18,7 +20,7 @@ def home(request):
     #     liste.append(dataset)
     # print(liste)
         dataset = sen.daten_set.all()
-
+ 
         flag = 0
         for data in dataset:
             sen_info = sen.esbid_type.split("_")
@@ -29,6 +31,7 @@ def home(request):
                 data_liste.append(esp_num)
                 data_liste.append(sen_type)
                 data_liste.append(sen.gase)
+                esp_id_liste.append(esp_num)
                 flag = 1
 
             data_liste.append([data.messwert, data.time_recorded])
@@ -36,20 +39,15 @@ def home(request):
         sen_liste.append(data_liste)
         data_liste = []
 
+        for i in esp_id_liste:
+            if i not in esp_id_liste_no_dup:
+                esp_id_liste_no_dup.append(i)
+
+    print("!!!!",esp_id_liste_no_dup)
     print(sen_liste)
 
- 
 
-
-    # sen = Sensor.objects.get(pk='7_MQ-8')
-    # dataset = sen.daten_set.exclude(sensor_id__exact="")
-    # print("!!!!!",dataset)
-    #print(daes.sensor_id)
-    
-    
-    #datas = Daten.objects.all()
-
-    return render(request, 'home.html', {"sen_liste": sen_liste})
+    return render(request, 'home.html', {"sen_liste": sen_liste, 'esp_id_list_no_dup': esp_id_liste_no_dup})  #alle ids als liste,   
 
 
 def feed_data(request):
@@ -57,7 +55,7 @@ def feed_data(request):
     #     receiced_json = request.body.decode('utf-8')
     #     x = json.loads(receiced_json)
 
-    example_json = '{"Node" : 7,"Sensors" : [{"Type": "MQ-2", "Value": 95}, {"Type": "MQ-135", "Value": 70},{"Type": "MQ-8", "Value": 70}, {"Type": "MQ-86", "Value": 70}]}'
+    example_json = '{"Node" : 7,"Sensors" : [{"Type": "MQ-2", "Value": 95}, {"Type": "MQ-135", "Value": 70},{"Type": "MQ-8", "Value": 70}, {"Type": "MQ-86", "Value": 70}, {"Type": "MQ-8", "Value": 450}]}'
 
     x = json.loads(example_json)
 
@@ -66,17 +64,20 @@ def feed_data(request):
         type = x["Sensors"][i]["Type"]
         value = x["Sensors"][i]["Value"]
         priv_key = str(node)+"_"+type
+        gase=get_gas(type)
+        if gase is not "Unknown":
 
+            if Sensor.objects.filter(esbid_type = priv_key).exists()==False:
+                sen_to_save = Sensor(esbid_type = priv_key, gase=get_gas(type))
+                sen_to_save.save()
+            
 
-        if Sensor.objects.filter(esbid_type = priv_key).exists()==False:
-            sen_to_save = Sensor(esbid_type = priv_key, gase=get_gas(type))
-            sen_to_save.save()
-         
+            data_to_save = Daten(messwert=value, sensor_id = Sensor.objects.get(pk = priv_key))
+            data_to_save.save() 
+        else:
+            print("The Sensor", type, "is not known")   
 
-        data_to_save = Daten(messwert=value, sensor_id = Sensor.objects.get(pk = priv_key))
-        data_to_save.save()    
-
-    return render(request, 'home.html', {})   
+    return render(request, 'home.html', {})
     
 
 
