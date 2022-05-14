@@ -2,11 +2,6 @@
   #define MYDEBUG
 
 
-
-void readGasPercentage(Sensor &s){
-  s.value = random(20000);
-}
-
 void updateSensorValues () {
   readGasPercentage(device.sensor0);
   readGasPercentage(device.sensor1);

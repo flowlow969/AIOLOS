@@ -4,18 +4,18 @@
 #include "structs.h"
 
 Sensor s0 = {
-  .typ = MQ_NONE,
+  .typ = MQ_4,
   .value = 0,
   .adc = 0,
   .rangeMin = 0,
-  .rangeMax = 0
+  .rangeMax = 10000
 };
 Sensor s1 = {
-  .typ = MQ_NONE,
+  .typ = MQ_5,
   .value = 0,
-  .adc = 0,
+  .adc = 1,
   .rangeMin = 0,
-  .rangeMax = 0
+  .rangeMax = 10000
 };
 Sensor s2 = {
   .typ = MQ_NONE,

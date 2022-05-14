@@ -79,8 +79,7 @@ else{
 void setup() {
 Serial.begin(115200);
 ads.setGain(GAIN_TWOTHIRDS);// 2/3x +/- 6.144V 1bit = 0.1875mV default
-
-  ads.begin();
+ads.begin();
 }
 void loop() {
 readGasPercentig(test.sensor1);
