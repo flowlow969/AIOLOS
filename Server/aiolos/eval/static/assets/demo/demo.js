@@ -364,7 +364,7 @@ demo = {
           pointHoverRadius: 4,
           pointHoverBorderWidth: 15,
           pointRadius: 2,
-          data: senVals1[0],
+          data: senVals1[1],
         },
         {
           label: "Sensor 2",
@@ -381,7 +381,7 @@ demo = {
           pointHoverRadius: 4,
           pointHoverBorderWidth: 15,
           pointRadius: 4,
-          data: senVals1[1],
+          data: senVals1[2],
         },
         {
           label: "Sensor 3",
@@ -398,7 +398,7 @@ demo = {
           pointHoverRadius: 4,
           pointHoverBorderWidth: 15,
           pointRadius: 4,
-          data: senVals1[2],
+          data: senVals1[3],
         },
         {
           label: "Sensor 4",
@@ -415,7 +415,7 @@ demo = {
           pointHoverRadius: 4,
           pointHoverBorderWidth: 15,
           pointRadius: 4,
-          data: senVals1[3],
+          data: senVals1[4],
         }
       ]
       },
@@ -423,7 +423,7 @@ demo = {
     };
     var myChartData = new Chart(ctx, config);
 
-    var chart_labels = senTimes2[3];
+    var chart_labels = senTimes2[1];
     
     var ctx = document.getElementById("chartBig2").getContext('2d');
 
@@ -451,7 +451,7 @@ demo = {
           pointHoverRadius: 4,
           pointHoverBorderWidth: 15,
           pointRadius: 2,
-          data: senVals2[0],
+          data: senVals2[1],
         },
         {
           label: "Sensor 2",
@@ -468,7 +468,7 @@ demo = {
           pointHoverRadius: 4,
           pointHoverBorderWidth: 15,
           pointRadius: 4,
-          data: senVals2[1],
+          data: senVals2[2],
         },
         {
           label: "Sensor 3",
@@ -485,7 +485,7 @@ demo = {
           pointHoverRadius: 4,
           pointHoverBorderWidth: 15,
           pointRadius: 4,
-          data: senVals2[2],
+          data: senVals2[3],
         },
         {
           label: "Sensor 4",
@@ -502,7 +502,7 @@ demo = {
           pointHoverRadius: 4,
           pointHoverBorderWidth: 15,
           pointRadius: 4,
-          data: senVals2[3],
+          data: senVals2[4],
         }
       ]
       },
@@ -543,7 +543,7 @@ demo = {
           pointHoverRadius: 4,
           pointHoverBorderWidth: 15,
           pointRadius: 2,
-          data: senVals3[0],
+          data: senVals3[1],
         },
         {
           label: "Sensor 2",
@@ -560,7 +560,7 @@ demo = {
           pointHoverRadius: 4,
           pointHoverBorderWidth: 15,
           pointRadius: 4,
-          data: senVals3[1],
+          data: senVals3[2],
         },
         {
           label: "Sensor 3",
@@ -577,7 +577,7 @@ demo = {
           pointHoverRadius: 4,
           pointHoverBorderWidth: 15,
           pointRadius: 4,
-          data: senVals3[2],
+          data: senVals3[3],
         },
         {
           label: "Sensor 4",
@@ -595,6 +595,23 @@ demo = {
           pointHoverBorderWidth: 15,
           pointRadius: 4,
           data: senVals3[3],
+        },
+        {
+          label: "Sensor 4",
+          fill: true,
+          backgroundColor: gradientStroke,
+          borderColor: 'rgba(10,94,134,1)',
+          borderWidth: 2,
+          borderDash: [],
+          borderDashOffset: 0.0,
+          pointBackgroundColor: 'rgba(10,94,134,1)',
+          pointBorderColor: 'rgba(10,94,134,0)',
+          pointHoverBackgroundColor: 'rgba(10,94,134,1)',
+          pointBorderWidth: 20,
+          pointHoverRadius: 4,
+          pointHoverBorderWidth: 15,
+          pointRadius: 4,
+          data: senVals3[4],
         }
       ]
       },
@@ -634,7 +651,7 @@ demo = {
           pointHoverRadius: 4,
           pointHoverBorderWidth: 15,
           pointRadius: 2,
-          data: senVals4[0],
+          data: senVals4[1],
         },
         {
           label: "Sensor 2",
@@ -651,7 +668,7 @@ demo = {
           pointHoverRadius: 4,
           pointHoverBorderWidth: 15,
           pointRadius: 4,
-          data: senVals4[1],
+          data: senVals4[2],
         },
         {
           label: "Sensor 3",
@@ -668,7 +685,7 @@ demo = {
           pointHoverRadius: 4,
           pointHoverBorderWidth: 15,
           pointRadius: 4,
-          data: senVals4[2],
+          data: senVals4[3],
         },
         {
           label: "Sensor 4",
@@ -685,7 +702,7 @@ demo = {
           pointHoverRadius: 4,
           pointHoverBorderWidth: 15,
           pointRadius: 4,
-          data: senVals4[3],
+          data: senVals4[4],
         }
       ]
       },

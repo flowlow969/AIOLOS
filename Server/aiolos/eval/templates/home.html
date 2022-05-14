@@ -24,15 +24,9 @@
                                 <h5 class="card-category">Gaswerte</h5>
                                 <h2 class="card-title">Grafik</h2>
                             </div>
-                            <div class="col-head">
-                                <div class="warnings">
-                                    <div class="warning red"></div>
-                                    <div class="warning yellow"></div>
-                                    <div class="warning green"></div>
-                                </div>
-                            </div>
+
                             <div class="col-message">
-                                <p class="message">Achtung</p>
+                                <p class="message alarm">Achtung</p>
                             </div>
                         </div>
                     </div>
@@ -46,7 +40,7 @@
             <div class="col-3">
                 <div class="card card-info-box">
                     <div class="card-header">
-                        <div class="row">
+                        <div class="row headi">
                             <div class="col-head text-left">
                                 <h5 class="card-category">Gaswerte</h5>
                                 <h2 class="card-title">INFO</h2>
@@ -57,19 +51,47 @@
                         {% for esp in esp_id_list_no_dup %}
 
                             {% if forloop.counter0 == 0 %}
-                            <p>ESP-ID: {{esp}}</p>
+                            <div class="card-info-title">
+                                <h3>ESP-ID: {{esp}}</h3>
+                            </div>
+                    
                             {% endif %}
                         {% endfor%}
                         {% for sen in sensorsZero %}
 
                         {% if forloop.counter0 == 0 %}
-                        <p>Sensor-1-Type: {{sen.gase}}</p>
+                        <div class="row-sensor">
+                            <div class="warnings">
+                                <div class="warning red"></div>
+                            </div>
+                            <div class="sensor-col">
+                            <h4>Sensor-1-Type:</h4>
+                            <p>{{sen.gase}}</p>
+                            </div>
+                        </div>
                         {% endif %}
                         {% if forloop.counter0 == 1 %}
-                        <p>Sensor-2-Type: {{sen.gase}}</p>
+                        <div class="row-sensor">
+                            <div class="warnings">
+                                <div class="warning red"></div>
+                            </div>
+                            <div class="sensor-col">
+                            <h4>Sensor-2-Type:</h4>
+                            <p>{{sen.gase}}</p>
+                            </div>
+                        </div>
+                        
                         {% endif %}
                         {% if forloop.counter0 == 2 %}
-                        <p>Sensor-3-Type: {{sen.gase}}</p>
+                        <div class="row-sensor">
+                            <div class="warnings">
+                                <div class="warning red"></div>
+                            </div>
+                            <div class="sensor-col">
+                            <h4>Sensor-3-Type:</h4>
+                            <p>{{sen.gase}}</p>
+                            </div>
+                        </div>
                         {% endif %}
                         
                         {% endfor %}
@@ -81,20 +103,14 @@
             <div class="col-7">
                 <div class="card card-chart">
                     <div class="card-header">
-                        <div class="row">
+                        <div class="row headi">
                             <div class="col-head text-left">
                                 <h5 class="card-category">Gaswerte</h5>
                                 <h2 class="card-title">Grafik</h2>
                             </div>
-                            <div class="col-head">
-                                <div class="warnings">
-                                    <div class="warning red"></div>
-                                    <div class="warning yellow"></div>
-                                    <div class="warning green"></div>
-                                </div>
-                            </div>
+
                             <div class="col-message">
-                                <p class="message">Achtung</p>
+                                <p class="message normal">Sollbereich</p>
                             </div>
                         </div>
                     </div>
@@ -108,7 +124,7 @@
             <div class="col-3">
                 <div class="card card-info-box">
                     <div class="card-header">
-                        <div class="row">
+                        <div class="row headi">
                             <div class="col-head text-left">
                                 <h5 class="card-category">Gaswerte</h5>
                                 <h2 class="card-title">INFO</h2>
@@ -119,19 +135,45 @@
                         {% for esp in esp_id_list_no_dup %}
 
                         {% if forloop.counter0 == 1 %}
-                        <p>ESP-ID: {{esp}}</p>
+                        <div class="card-info-title">
+                            <h3>ESP-ID: {{esp}}</h3>
+                        </div>
                         {% endif %}
                     {% endfor%}
                     {% for sen in sensorsOne %}
 
                     {% if forloop.counter0 == 0 %}
-                    <p>Sensor-1-Type: {{sen.gase}}</p>
+                    <div class="row-sensor">
+                        <div class="warnings">
+                            <div class="warning red"></div>
+                        </div>
+                        <div class="sensor-col">
+                        <h4>Sensor-1-Type:</h4>
+                        <p>{{sen.gase}}</p>
+                        </div>
+                    </div>
                     {% endif %}
                     {% if forloop.counter0 == 1 %}
-                    <p>Sensor-2-Type: {{sen.gase}}</p>
+                    <div class="row-sensor">
+                        <div class="warnings">
+                            <div class="warning red"></div>
+                        </div>
+                        <div class="sensor-col">
+                        <h4>Sensor-2-Type:</h4>
+                        <p>{{sen.gase}}</p>
+                        </div>
+                    </div>
                     {% endif %}
                     {% if forloop.counter0 == 2 %}
-                    <p>Sensor--Type: {{sen.gase}}</p>
+                    <div class="row-sensor">
+                        <div class="warnings">
+                            <div class="warning red"></div>
+                        </div>
+                        <div class="sensor-col">
+                        <h4>Sensor-3-Type:</h4>
+                        <p>{{sen.gase}}</p>
+                        </div>
+                    </div>
                     {% endif %}
                     
                     {% endfor %}
@@ -143,20 +185,14 @@
             <div class="col-7">
                 <div class="card card-chart">
                     <div class="card-header">
-                        <div class="row">
+                        <div class="row headi">
                             <div class="col-head text-left">
                                 <h5 class="card-category">Gaswerte</h5>
                                 <h2 class="card-title">Grafik</h2>
                             </div>
-                            <div class="col-head">
-                                <div class="warnings">
-                                    <div class="warning red"></div>
-                                    <div class="warning yellow"></div>
-                                    <div class="warning green"></div>
-                                </div>
-                            </div>
+
                             <div class="col-message">
-                                <p class="message">Achtung</p>
+                                <p class="message normal">Sollbereich</p>
                             </div>
                         </div>
                     </div>
@@ -170,7 +206,7 @@
             <div class="col-3">
                 <div class="card card-info-box">
                     <div class="card-header">
-                        <div class="row">
+                        <div class="row headi">
                             <div class="col-head text-left">
                                 <h5 class="card-category">Gaswerte</h5>
                                 <h2 class="card-title">INFO</h2>
@@ -181,19 +217,45 @@
                         {% for esp in esp_id_list_no_dup %}
 
                         {% if forloop.counter0 == 2 %}
-                        <p>ESP-ID: {{esp}}</p>
+                        <div class="card-info-title">
+                            <h3>ESP-ID: {{esp}}</h3>
+                        </div>
                         {% endif %}
                     {% endfor%}
                     {% for sen in sensorsTwo %}
 
                     {% if forloop.counter0 == 0 %}
-                    <p>Sensor-1-Type: {{sen.gase}}</p>
+                    <div class="row-sensor">
+                        <div class="warnings">
+                            <div class="warning red"></div>
+                        </div>
+                        <div class="sensor-col">
+                        <h4>Sensor-1-Type:</h4>
+                        <p>{{sen.gase}}</p>
+                        </div>
+                    </div>
                     {% endif %}
                     {% if forloop.counter0 == 1 %}
-                    <p>Sensor-2-Type: {{sen.gase}}</p>
+                    <div class="row-sensor">
+                        <div class="warnings">
+                            <div class="warning red"></div>
+                        </div>
+                        <div class="sensor-col">
+                        <h4>Sensor-2-Type:</h4>
+                        <p>{{sen.gase}}</p>
+                        </div>
+                    </div>
                     {% endif %}
                     {% if forloop.counter0 == 2 %}
-                    <p>Sensor--Type: {{sen.gase}}</p>
+                    <div class="row-sensor">
+                        <div class="warnings">
+                            <div class="warning red"></div>
+                        </div>
+                        <div class="sensor-col">
+                        <h4>Sensor-3-Type:</h4>
+                        <p>{{sen.gase}}</p>
+                        </div>
+                    </div>
                     {% endif %}
                     
                     {% endfor %}
@@ -205,20 +267,14 @@
             <div class="col-7">
                 <div class="card card-chart">
                     <div class="card-header">
-                        <div class="row">
+                        <div class="row headi">
                             <div class="col-head text-left">
                                 <h5 class="card-category">Gaswerte</h5>
                                 <h2 class="card-title">Grafik</h2>
                             </div>
-                            <div class="col-head">
-                                <div class="warnings">
-                                    <div class="warning red"></div>
-                                    <div class="warning yellow"></div>
-                                    <div class="warning green"></div>
-                                </div>
-                            </div>
+
                             <div class="col-message">
-                                <p class="message">Achtung</p>
+                                <p class="message alarm">Achtung</p>
                             </div>
                         </div>
                     </div>
@@ -232,7 +288,7 @@
             <div class="col-3">
                 <div class="card card-info-box">
                     <div class="card-header">
-                        <div class="row">
+                        <div class="row headi">
                             <div class="col-head text-left">
                                 <h5 class="card-category">Gaswerte</h5>
                                 <h2 class="card-title">INFO</h2>
@@ -243,19 +299,45 @@
                         {% for esp in esp_id_list_no_dup %}
 
                         {% if forloop.counter0 == 3 %}
-                        <p>ESP-ID: {{esp}}</p>
+                        <div class="card-info-title">
+                            <h3>ESP-ID: {{esp}}</h3>
+                        </div>
                         {% endif %}
                     {% endfor %}
                     {% for sen in sensorsThree %}
 
                     {% if forloop.counter0 == 0 %}
-                    <p>Sensor-1-Type: {{sen.gase}}</p>
+                    <div class="row-sensor">
+                        <div class="warnings">
+                            <div class="warning red"></div>
+                        </div>
+                        <div class="sensor-col">
+                        <h4>Sensor-1-Type:</h4>
+                        <p>{{sen.gase}}</p>
+                        </div>
+                    </div>
                     {% endif %}
                     {% if forloop.counter0 == 1 %}
-                    <p>Sensor-2-Type: {{sen.gase}}</p>
+                    <div class="row-sensor">
+                        <div class="warnings">
+                            <div class="warning red"></div>
+                        </div>
+                        <div class="sensor-col">
+                        <h4>Sensor-2-Type:</h4>
+                        <p>{{sen.gase}}</p>
+                        </div>
+                    </div>
                     {% endif %}
                     {% if forloop.counter0 == 2 %}
-                    <p>Sensor--Type: {{sen.gase}}</p>
+                    <div class="row-sensor">
+                        <div class="warnings">
+                            <div class="warning red"></div>
+                        </div>
+                        <div class="sensor-col">
+                        <h4>Sensor-3-Type:</h4>
+                        <p>{{sen.gase}}</p>
+                        </div>
+                    </div>
                     {% endif %}
 
                     {% endfor %}
