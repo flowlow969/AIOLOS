@@ -31,7 +31,7 @@ def home(request):
                 data_liste.append(sen.gase)
                 flag = 1
 
-            data_liste.append(data.messwert)
+            data_liste.append([data.messwert, data.time_recorded])
             #print(esp_num, sen_type, data.messwert)
         sen_liste.append(data_liste)
         data_liste = []
