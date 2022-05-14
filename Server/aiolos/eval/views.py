@@ -13,7 +13,16 @@ def home(request):
     esp_id_liste = []
     esp_id_liste_no_dup = []
 
-    sensors = Sensor.objects.all()
+    sensors = Sensor.objects.all().order_by('esbid_type')
+    print("HALLLOOOOOOOOOOOO")
+    print(sensors)
+    sensorsZero = sensors.filter(esbid_type__contains='0_')
+    sensorsOne = sensors.filter(esbid_type__contains='1_')
+    sensorsTwo = sensors.filter(esbid_type__contains='2_')
+    sensorsThree = sensors.filter(esbid_type__contains='3_')
+    print("=============================================")
+    print(sensorsOne)
+
     datenobj = Daten.objects.all()
     for sen in sensors:
     #     dataset = sen.daten_set.exclude(sensor_id__exact="")
@@ -47,7 +56,7 @@ def home(request):
     print(sen_liste)
 
 
-    return render(request, 'home.html', {"sen_liste": sen_liste, 'esp_id_list_no_dup': esp_id_liste_no_dup})  #alle ids als liste,   
+    return render(request, 'home.html', {"sen_liste": sen_liste, 'esp_id_list_no_dup': esp_id_liste_no_dup, 'sensors': sensors, 'sensorsZero': sensorsZero, 'sensorsOne': sensorsOne, 'sensorsTwo': sensorsTwo, 'sensorsThree': sensorsThree })  #alle ids als liste,   
 
 
 def feed_data(request):

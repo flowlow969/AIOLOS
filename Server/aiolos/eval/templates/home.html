@@ -53,10 +53,25 @@
                         </div>
                     </div>
                     <div class="card-info">
-                        <p>ESP-ID: XXXXXXX</p>
-                        <p>Sensor-1-Type: XXXXXX</p>
-                        <p>Sensor-2-Type: XXXXXX</p>
-                        <p>Sensor-3-Type: XXXXXX</p>
+                        {% for esp in esp_id_list_no_dup %}
+
+                            {% if forloop.counter0 == 0 %}
+                            <p>ESP-ID: {{esp}}</p>
+                            {% endif %}
+                        {% endfor%}
+                        {% for sen in sensorsZero %}
+
+                        {% if forloop.counter0 == 0 %}
+                        <p>Sensor-1-Type: {{sen.gase}}</p>
+                        {% endif %}
+                        {% if forloop.counter0 == 1 %}
+                        <p>Sensor-2-Type: {{sen.gase}}</p>
+                        {% endif %}
+                        {% if forloop.counter0 == 2 %}
+                        <p>Sensor-3-Type: {{sen.gase}}</p>
+                        {% endif %}
+                        
+                        {% endfor %}
                     </div>
                 </div>
             </div>
@@ -100,10 +115,25 @@
                         </div>
                     </div>
                     <div class="card-info">
-                        <p>ESP-ID: XXXXXXX</p>
-                        <p>Sensor-1-Type: XXXXXX</p>
-                        <p>Sensor-2-Type: XXXXXX</p>
-                        <p>Sensor-3-Type: XXXXXX</p>
+                        {% for esp in esp_id_list_no_dup %}
+
+                        {% if forloop.counter0 == 1 %}
+                        <p>ESP-ID: {{esp}}</p>
+                        {% endif %}
+                    {% endfor%}
+                    {% for sen in sensorsOne %}
+
+                    {% if forloop.counter0 == 0 %}
+                    <p>Sensor-1-Type: {{sen.gase}}</p>
+                    {% endif %}
+                    {% if forloop.counter0 == 1 %}
+                    <p>Sensor-2-Type: {{sen.gase}}</p>
+                    {% endif %}
+                    {% if forloop.counter0 == 2 %}
+                    <p>Sensor--Type: {{sen.gase}}</p>
+                    {% endif %}
+                    
+                    {% endfor %}
                     </div>
                 </div>
             </div>
@@ -147,10 +177,25 @@
                         </div>
                     </div>
                     <div class="card-info">
-                        <p>ESP-ID: XXXXXXX</p>
-                        <p>Sensor-1-Type: XXXXXX</p>
-                        <p>Sensor-2-Type: XXXXXX</p>
-                        <p>Sensor-3-Type: XXXXXX</p>
+                        {% for esp in esp_id_list_no_dup %}
+
+                        {% if forloop.counter0 == 2 %}
+                        <p>ESP-ID: {{esp}}</p>
+                        {% endif %}
+                    {% endfor%}
+                    {% for sen in sensorsTwo %}
+
+                    {% if forloop.counter0 == 0 %}
+                    <p>Sensor-1-Type: {{sen.gase}}</p>
+                    {% endif %}
+                    {% if forloop.counter0 == 1 %}
+                    <p>Sensor-2-Type: {{sen.gase}}</p>
+                    {% endif %}
+                    {% if forloop.counter0 == 2 %}
+                    <p>Sensor--Type: {{sen.gase}}</p>
+                    {% endif %}
+                    
+                    {% endfor %}
                     </div>
                 </div>
             </div>
@@ -194,10 +239,27 @@
                         </div>
                     </div>
                     <div class="card-info">
-                        <p>ESP-ID: XXXXXXX</p>
-                        <p>Sensor-1-Type: XXXXXX</p>
-                        <p>Sensor-2-Type: XXXXXX</p>
-                        <p>Sensor-3-Type: XXXXXX</p>
+                        {% for esp in esp_id_list_no_dup %}
+
+                        {% if forloop.counter0 == 3 %}
+                        <p>ESP-ID: {{esp}}</p>
+                        {% endif %}
+                    {% endfor %}
+                    {% for sen in sensorsThree %}
+
+                    {% if forloop.counter0 == 0 %}
+                    <p>Sensor-1-Type: {{sen.gase}}</p>
+                    {% endif %}
+                    {% if forloop.counter0 == 1 %}
+                    <p>Sensor-2-Type: {{sen.gase}}</p>
+                    {% endif %}
+                    {% if forloop.counter0 == 2 %}
+                    <p>Sensor--Type: {{sen.gase}}</p>
+                    {% endif %}
+
+                    {% endfor %}
+                        
+
                     </div>
                 </div>
             </div>

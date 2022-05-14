@@ -13,6 +13,8 @@ class Sensor (models.Model):
     gase = models.CharField(max_length=500, blank=False, null=False)
     def __str__(self):
         return self.esbid_type
+    
+    
 
 class Daten(models.Model):
     messwert = models.IntegerField(blank=True, null=True) #kaputter Sensor ist -1

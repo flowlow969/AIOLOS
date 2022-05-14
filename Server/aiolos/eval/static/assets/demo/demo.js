@@ -85,7 +85,7 @@ demo = {
 
     for (let i = 0; i < lengthVals; i++) {
 
-      if(sensorVals[i][0] == 7) {
+      if(sensorVals[i][0] == 0) {
         
         var sensorTimeValues = sensorVals[i].slice(3);
 
