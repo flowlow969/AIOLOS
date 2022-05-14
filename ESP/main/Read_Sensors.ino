@@ -1,7 +1,6 @@
 #include <Wire.h>
 #include "structs.h"
 #include <Adafruit_ADS1X15.h>
-#define MYDEBUG
 
 Adafruit_ADS1115 ads;
 const int ACDUPPERBOUND = 16348;
