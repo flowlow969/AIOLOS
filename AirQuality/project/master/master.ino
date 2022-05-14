@@ -3,8 +3,8 @@
 #include <Arduino_JSON.h>
 #include "ESPAsyncWebServer.h"
 
-const char* ssid = "Panama";
-const char* pw = "Tiger+Baer";
+const char* ssid = "draegerguest";
+const char* pw = "bird-controller";
 
 typedef struct struct_message {
   int id;
@@ -73,6 +73,7 @@ const char index_html[] PROGMEM = R"rawliteral(
     </div>
   </div>
 <script>
+ 
 if (!!window.EventSource) {
  var source = new EventSource('/events');
  
@@ -97,13 +98,17 @@ if (!!window.EventSource) {
   document.getElementById("rh"+obj.id).innerHTML = obj.readingId;
  }, false);
 }
-function f_color(){
-var myVal = parseInt(document.getElementById('ID').value);
-if (myVal > 100) {
-document.getElementById('ID').style.color = "red";
-}
-}
-document.getElementById('ID').onchange= f_color;
+
+  if (obj.g.toFixed(2) > 100) {
+      document.getElementById("rg1").style.color = "red";
+  }
+    if (obj.g.toFixed(2) <= 100 && obj.g.toFixed(2) > 50) {
+      document.getElementById("rg1").style.color = "orange";
+  }
+    if(obj.g.toFixed(2) <= 50){
+      document.getElementById("rg1").style.color = "green";
+   }
+
 </script>
 </body>
 </html>)rawliteral";
@@ -112,16 +117,16 @@ void setup() {
   // Initialize Serial Monitor
   Serial.begin(115200);
 
-  // Set the device as a Station and Soft Access Point simultaneously
+  // Gerät als WiFi Bridge aktivieren
   WiFi.mode(WIFI_AP_STA);
   
-  // Set device as a Wi-Fi Station
+  // WiFi einstellungen vornehmen
   WiFi.begin(ssid, pw);
   while (WiFi.status() != WL_CONNECTED) {
     delay(1000);
-    Serial.println("Setting as a Wi-Fi Station..");
+    Serial.println("Verbinden mit Lokalen WiFi");
   }
-  Serial.print("Station IP Address: ");
+  Serial.print("Station IP Addresse: ");
   Serial.println(WiFi.localIP());
   Serial.print("Wi-Fi Channel: ");
   Serial.println(WiFi.channel());

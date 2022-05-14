@@ -1,0 +1,52 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  
+  <title>
+    Django Dashboard Black - {% block title %}{% endblock %}
+  </title>
+
+  <!--     Fonts and icons     -->
+  <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,600,700,800" rel="stylesheet" />
+  <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+  <!-- CSS Files -->
+  <link href="/static/assets/css/black-dash.css" rel="stylesheet" />
+
+  <!-- Specific Page CSS goes HERE  -->
+  {% block stylesheets %}{% endblock stylesheets %}
+
+</head>
+
+<body class="">
+  <div class="wrapper">
+
+
+    <div class="main-panel">
+
+      <div class="content">
+
+        {% block content %}{% endblock content %}
+
+      </div>
+    </div>
+    
+  </div>
+
+  <script src="/static/assets/js/jquery.min.js"></script>
+  <script src="/static/assets/js/chartjs.min.js"></script>
+
+  <!-- Control Center for Black Dashboard: parallax effects, scripts for the example pages etc -->
+  <script src="/static/assets/demo/demo.js"></script>
+
+  
+
+  <!-- Specific Page JS goes HERE  -->
+  {% block javascripts %}{% endblock javascripts %}
+
+</body>
+
+</html>
