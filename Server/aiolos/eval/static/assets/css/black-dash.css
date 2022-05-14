@@ -3,39 +3,8 @@
 /* navbar color */
 :root {
   --blue: #5e72e4;
-  --indigo: #5603ad;
-  --purple: #8965e0;
-  --pink: #f3a4b5;
-  --red: #f5365c;
-  --orange: #fb6340;
-  --yellow: #ffd600;
-  --green: #2dce89;
-  --teal: #11cdef;
-  --cyan: #2bffc6;
-  --white: #ffffff;
-  --gray: #6c757d;
-  --gray-dark: #32325d;
-  --light: #ced4da;
-  --lighter: #e9ecef;
-  --primary: #e14eca;
-  --secondary: #f4f5f7;
-  --success: #00f2c3;
-  --info: #1d8cf8;
-  --warning: #ff8d72;
-  --danger: #fd5d93;
-  --light: #adb5bd;
-  --dark: #212529;
-  --default: #344675;
-  --white: #ffffff;
-  --neutral: #ffffff;
-  --darker: black;
-  --breakpoint-xs: 0;
-  --breakpoint-sm: 576px;
-  --breakpoint-md: 768px;
-  --breakpoint-lg: 992px;
-  --breakpoint-xl: 1200px;
   --font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
+}
 
 *,
 *::before,
@@ -60,6 +29,11 @@ body {
   color: #525f7f;
   text-align: left;
   background-color: #1e1e2f; }
+
+p {
+  margin-top: 0rem;
+  margin-bottom: 0rem;
+}
 
 h1, h2, h3, h4, h5, h6 {
   margin-top: 0;
@@ -101,9 +75,13 @@ h6, .h6 {
 
 .row {
   display: flex;
+  flex-direction: row;
   flex-wrap: wrap;
-  margin-right: -15px;
-  margin-left: -15px; }
+  padding-bottom: 4vw;
+ }
+.row-top {
+  padding-top: 4vw
+}
 
 
 
@@ -115,24 +93,77 @@ h6, .h6 {
 .col-xl-auto {
   position: relative;
   width: 100%;
-  padding-right: 15px;
-  padding-left: 15px; }
+  padding-right: 2vw;
+  padding-left: 2vw; }
 
 .col {
   flex-basis: 0;
   flex-grow: 1;
   max-width: 100%; }
 
+.col-head {
+  padding-right: 2vw;
+  padding-left: 1vw;
+  position: relative;
+  flex-basis: 40%;
+}
+.col-head > .warnings {
+  display: flex;
+  flex-direction: row;
+  gap: 2vw;
+  height: 100%;
+  align-items: center;
+}
+.col-head > .warnings > .warning{
+  width: 3vw;
+  height: 3vw;
 
+  border-radius: 50%;
+}
+.col-head > .warnings > .warning.red{
+  background-color: rgba(255,0,0,1);
+}
+.col-head > .warnings > .warning.yellow{
+  background-color: rgba(255, 255, 0, 0.1);
+}
+.col-head > .warnings > .warning.green{
+  background-color: rgba(0,128,0,0.1);
+}
+.col-message {
+  color: rgba(255,0,0,1);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.col-message > .message {
+  padding: 1vw 4vw;
+  border: 2px solid rgba(255,0,0,1);
+  border-radius: 10px;
+
+}
+.container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
 
 .col-4 {
   flex: 0 0 33.33333%;
   max-width: 33.33333%; }
 
-.col-12 {
-  flex: 0 0 100%;
-  max-width: 100%; }
+.col-3 {
+    flex: 0 0 30%;
+    max-width: 30%; }
+.col-7 {
+  flex: 0 0 70%;
+  max-width: 70%; }
 
+.col-2 {
+  flex: 0 0 20%;
+  max-width: 20%; }
+.col-8 {
+  flex: 0 0 80%;
+  max-width: 80%; }
 
 @media (min-width: 992px) {
   .col-lg {
@@ -145,9 +176,27 @@ h6, .h6 {
     max-width: 33.33333%; }
   }
 
-.card-body {
-  flex: 1 1 auto;
-  padding: 1.5rem; }
+.card-chart-body {
+  display: flex;
+  flex-direction: row;
+  padding: 1.5vw;
+ }
+  
+.card-info {
+  display: flex;
+  flex-direction: column;
+  margin-right: 2vw;
+  margin-left: 1vw;
+  width: 15vw;
+  color: white;
+
+}
+.card-info-box {
+  height: 100%;
+}
+.card-info > p {
+  margin-top: 1vw;
+}
 
 .card-title {
   margin-bottom: 1.25rem; }
@@ -246,6 +295,7 @@ h6, .h6 {
   border: 0;
   position: relative;
   width: 100%;
+  height: 100%;
   margin-bottom: 30px;
   box-shadow: 0 1px 20px 0px rgba(0, 0, 0, 0.1); }
   .card label {
@@ -277,6 +327,7 @@ h6, .h6 {
       color: #9A9A9A;
       margin-bottom: 5px;
       font-weight: 300; }
+
   
 .card-body {
   padding: 1.25rem; }
