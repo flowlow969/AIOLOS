@@ -4,7 +4,7 @@
 
 
 //Zuordnung des Nodes. (Wichtig: hochzählen)
-int nodeNumber = 1;
+int nodeNumber = 3;
 
 //Pin zuordnung
 #define ANALOG_PIN 34
