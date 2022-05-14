@@ -17,7 +17,7 @@ void updateSensorValues () {
 void sendToPi(String& s){
   Serial.println(s);
 }
-void myDebug(String& s){
+void myDebug(String s){
   #ifdef MYDEBUG
   Serial.println(s);
   #endif

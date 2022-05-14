@@ -32,7 +32,7 @@ Sensor s3 = {
   .rangeMax = 0
 };
 Node device = {
-  .id = 1,
+  .id = 2,
   .sensor0 = s0,
   .sensor1 = s1,
   .sensor2 = s2,
