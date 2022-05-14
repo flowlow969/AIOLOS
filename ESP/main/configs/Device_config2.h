@@ -7,27 +7,27 @@ Sensor s0 = {
   .typ = MQ_4,
   .value = 0,
   .adc = 0,
-  .rangeMin = 0,
+  .rangeMin = 200,
   .rangeMax = 10000
 };
 Sensor s1 = {
   .typ = MQ_5,
   .value = 0,
   .adc = 1,
-  .rangeMin = 0,
+  .rangeMin = 300,
   .rangeMax = 10000
 };
 Sensor s2 = {
-  .typ = MQ_NONE,
+  .typ = MQ_6,
   .value = 0,
   .adc = 0,
-  .rangeMin = 0,
-  .rangeMax = 0
+  .rangeMin = 100,
+  .rangeMax = 10000
 };
 Sensor s3 = {
   .typ = MQ_NONE,
   .value = 0,
-  .adc = 0,
+  .adc = -1,
   .rangeMin = 0,
   .rangeMax = 0
 };

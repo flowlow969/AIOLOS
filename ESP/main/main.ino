@@ -1,5 +1,4 @@
 #include "structs.h"
-#include "Device_config.h"
 
 #define MYDEBUG
 
