@@ -1,0 +1,330 @@
+
+/*     brand Colors              */
+/* navbar color */
+:root {
+  --blue: #5e72e4;
+  --indigo: #5603ad;
+  --purple: #8965e0;
+  --pink: #f3a4b5;
+  --red: #f5365c;
+  --orange: #fb6340;
+  --yellow: #ffd600;
+  --green: #2dce89;
+  --teal: #11cdef;
+  --cyan: #2bffc6;
+  --white: #ffffff;
+  --gray: #6c757d;
+  --gray-dark: #32325d;
+  --light: #ced4da;
+  --lighter: #e9ecef;
+  --primary: #e14eca;
+  --secondary: #f4f5f7;
+  --success: #00f2c3;
+  --info: #1d8cf8;
+  --warning: #ff8d72;
+  --danger: #fd5d93;
+  --light: #adb5bd;
+  --dark: #212529;
+  --default: #344675;
+  --white: #ffffff;
+  --neutral: #ffffff;
+  --darker: black;
+  --breakpoint-xs: 0;
+  --breakpoint-sm: 576px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 992px;
+  --breakpoint-xl: 1200px;
+  --font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box; }
+
+html {
+  font-family: sans-serif;
+  line-height: 1.15;
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: rgba(34, 42, 66, 0); }
+
+article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
+  display: block; }
+
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #525f7f;
+  text-align: left;
+  background-color: #1e1e2f; }
+
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  font-family: inherit;
+  font-weight: 400;
+  line-height: 1.2;
+  color: #32325d; }
+
+ol,
+ul,
+dl {
+  margin-top: 0;
+  margin-bottom: 1rem; }
+
+ol ol,
+ul ul,
+ol ul,
+ul ol {
+  margin-bottom: 0; }
+
+h1, .h1 {
+  font-size: 2.0625rem; }
+
+h2, .h2 {
+  font-size: 1.6875rem; }
+
+h3, .h3 {
+  font-size: 1.4375rem; }
+
+h4, .h4 {
+  font-size: 1.0625rem; }
+
+h5, .h5 {
+  font-size: 0.8125rem; }
+
+h6, .h6 {
+  font-size: 0.75rem; }
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px; }
+
+
+
+.col-1, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-10, .col-11, .col-12, .col,
+.col-auto, .col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm,
+.col-sm-auto, .col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12, .col-md,
+.col-md-auto, .col-lg-1, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg,
+.col-lg-auto, .col-xl-1, .col-xl-2, .col-xl-3, .col-xl-4, .col-xl-5, .col-xl-6, .col-xl-7, .col-xl-8, .col-xl-9, .col-xl-10, .col-xl-11, .col-xl-12, .col-xl,
+.col-xl-auto {
+  position: relative;
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px; }
+
+.col {
+  flex-basis: 0;
+  flex-grow: 1;
+  max-width: 100%; }
+
+
+
+.col-4 {
+  flex: 0 0 33.33333%;
+  max-width: 33.33333%; }
+
+.col-12 {
+  flex: 0 0 100%;
+  max-width: 100%; }
+
+
+@media (min-width: 992px) {
+  .col-lg {
+    flex-basis: 0;
+    flex-grow: 1;
+    max-width: 100%; }
+ 
+  .col-lg-4 {
+    flex: 0 0 33.33333%;
+    max-width: 33.33333%; }
+  }
+
+.card-body {
+  flex: 1 1 auto;
+  padding: 1.5rem; }
+
+.card-title {
+  margin-bottom: 1.25rem; }
+
+.card-header {
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 0;
+  background-color: #f6f9fc;
+  border-bottom: 0.0625rem solid rgba(34, 42, 66, 0.05); }
+
+.card-columns .card {
+  margin-bottom: 1.25rem; }
+
+@media (min-width: 576px) {
+  .card-columns {
+    column-count: 3;
+    column-gap: 1.25rem;
+    orphans: 1;
+    widows: 1; }
+    .card-columns .card {
+      display: inline-block;
+      width: 100%; } }
+    
+
+.text-monospace {
+  font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !important; }
+
+.wrapper {
+  position: relative;
+  top: 0;
+  height: 100vh; }
+  .wrapper.wrapper-full-page {
+    min-height: 100vh;
+    height: auto; }
+
+.sidebar-wrapper ul li div.collapse ul li div.collapse ul li a,
+.sidebar-wrapper ul li div.collapse ul li div.collapsing ul li a,
+.sidebar-wrapper ul li div.collapsing ul li div.collapse ul li a {
+  margin-left: 25px; }
+
+.sidebar,
+.off-canvas-sidebar {
+  background: #ba54f5;
+  background: linear-gradient(0deg, #ba54f5 0%, #e14eca 100%);
+  height: calc(100vh - 90px);
+  width: 230px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  background-size: cover;
+  background-position: center center;
+  display: block;
+  box-shadow: 0px 0px 45px 0px rgba(0, 0, 0, 0.6);
+  margin-top: 80px;
+  margin-left: 20px;
+  border-radius: 5px;
+}
+
+
+.main-panel {
+  position: relative;
+  float: right;
+  width: 100%;
+  min-height: 100vh;
+  border-top: 2px solid #e14eca;
+  background: linear-gradient(#1e1e2f, #1e1e24);
+  transition: all 0.5s cubic-bezier(0.685, 0.0473, 0.346, 1); }
+  .main-panel .header {
+    margin-bottom: 50px; }
+  
+
+@media screen and (max-width: 991px) {
+  .sidebar {
+    position: fixed;
+    display: block;
+    top: 0;
+    height: 100%;
+    width: 260px;
+    right: auto;
+    left: 0;
+    margin: 0;
+    border-radius: 0;
+    z-index: 1032;
+    visibility: visible;
+    overflow-y: visible;
+    padding: 0;
+    transition: 0.5s cubic-bezier(0.685, 0.0473, 0.346, 1);
+    transform: translate3d(-260px, 0, 0); } }
+  @media screen and (max-width: 991px) and (prefers-reduced-motion: reduce) {
+    .sidebar {
+      transition: none; } }
+      
+.card {
+  background: #27293d;
+  border: 0;
+  position: relative;
+  width: 100%;
+  margin-bottom: 30px;
+  box-shadow: 0 1px 20px 0px rgba(0, 0, 0, 0.1); }
+  .card label {
+    color: rgba(255, 255, 255, 0.6); }
+  .card .card-title {
+    margin-bottom: .75rem; }
+  .card .card-body {
+    padding: 15px; }
+    .card .card-body.table-full-width {
+      padding-left: 0;
+      padding-right: 0; }
+    .card .card-body .card-title {
+      color: #ffffff;
+      text-transform: inherit;
+      font-weight: 300;
+      margin-bottom: .75rem; }
+    .card .card-body .card-description, .card .card-body .card-category {
+      color: rgba(255, 255, 255, 0.6); }
+  .card .card-header {
+    padding: 15px 15px 0;
+    border: 0;
+    color: rgba(255, 255, 255, 0.8); }
+    .card .card-header:not([data-background-color]) {
+      background-color: transparent; }
+    .card .card-header .card-title {
+      color: #ffffff;
+      font-weight: 100; }
+    .card .card-header .card-category {
+      color: #9A9A9A;
+      margin-bottom: 5px;
+      font-weight: 300; }
+  
+.card-body {
+  padding: 1.25rem; }
+
+@media (max-width: 767.98px) {
+  .card.card-chart .card-header .btn-group-toggle .tim-icons {
+    font-size: .875rem;
+    top: -1px; } }
+
+.card-chart {
+  overflow: hidden; }
+  .card-chart .card-header .card-title i {
+    font-size: 16px;
+    margin-right: 5px;
+    margin-bottom: 3px; }
+  .card-chart .card-header .card-category {
+    margin-bottom: 5px; }
+  .card-chart .card-body {
+    padding-left: 5px;
+    padding-right: 5px; }
+    .card-chart .card-body .tab-space {
+      padding: 0; }
+  .card-chart .table {
+    margin-bottom: 0; }
+    .card-chart .table td {
+      border-top: none;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+  .card-chart .card-progress {
+    margin-top: 30px;
+    padding: 0 10px; }
+  .card-chart .chart-area {
+    height: 220px;
+    width: 100%; }
+  .card-chart .card-footer {
+    margin-top: 15px; }
+    .card-chart .card-footer .stats {
+      color: #9A9A9A; }
+  .card-chart .dropdown {
+    position: absolute;
+    right: 20px;
+    top: 20px; }
+    .card-chart .dropdown .btn {
+      margin: 0; }
+  .card-chart.card-chart-pie .chart-area {
+    padding: 10px 0 25px;
+    height: auto; }
+  .card-chart.card-chart-pie .card-title {
+    margin-bottom: 10px; }
+    .card-chart.card-chart-pie .card-title i {
+      font-size: 1rem; }
+
