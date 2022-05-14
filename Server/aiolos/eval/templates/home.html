@@ -200,7 +200,7 @@
         </div>
 </div>
    
-{{sen_liste|json_script:"sen_liste"}}
+{{ var_1|json_script:"var-1-json" }}
 
 {% endblock content %}
 
@@ -208,7 +208,10 @@
 {% block javascripts %}
 
   <script>
+        let a = JSON.parse(document.getElementById('var-1-json').textContent);
+        print(a)
     $(document).ready(function() {
+
       // Javascript method's body can be found in assets/js/demos.js
       demo.initDashboardPageCharts();
 
