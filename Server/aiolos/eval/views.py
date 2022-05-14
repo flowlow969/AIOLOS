@@ -1,3 +1,4 @@
+from xml.sax import default_parser_list
 from django.shortcuts import render,redirect
 import json
 from eval.models import Sensor, Daten
@@ -7,16 +8,37 @@ from eval.models import Sensor, Daten
 
 # Create your views here.
 def home(request):
-    liste = []
+    sen_liste = []
+    data_liste = []
+
     sensors = Sensor.objects.all()
     datenobj = Daten.objects.all()
-    # for sen in sensors:
+    for sen in sensors:
     #     dataset = sen.daten_set.exclude(sensor_id__exact="")
     #     liste.append(dataset)
     # print(liste)
+        dataset = sen.daten_set.all()
 
-    for daten in datenobj:
-        pass
+        flag = 0
+        for data in dataset:
+            sen_info = sen.esbid_type.split("_")
+            esp_num = int(sen_info[0])
+            sen_type = sen_info[1]
+
+            if flag == 0:
+                data_liste.append(esp_num)
+                data_liste.append(sen_type)
+                data_liste.append(sen.gase)
+                flag = 1
+
+            data_liste.append(data.messwert)
+            #print(esp_num, sen_type, data.messwert)
+        sen_liste.append(data_liste)
+        data_liste = []
+
+    print(sen_liste)
+
+ 
 
 
     # sen = Sensor.objects.get(pk='7_MQ-8')
@@ -27,8 +49,7 @@ def home(request):
     
     #datas = Daten.objects.all()
 
-
-    return render(request, 'home.html', {'sensors' : sensors})
+    return render(request, 'home.html', {"sen_liste": sen_liste})
 
 
 def feed_data(request):

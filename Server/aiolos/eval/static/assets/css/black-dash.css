@@ -79,6 +79,32 @@ h6, .h6 {
   flex-wrap: wrap;
   padding-bottom: 4vw;
  }
+ @media only screen and (max-width: 600px) {
+  .col-10 > .row {
+    flex-direction: column;
+  }
+  .col-3 {
+    flex: 0 0 100%!important;
+    max-width: 100%!important; }
+  .col-7 {
+  flex: 0 0 100%!important;
+  max-width: 100%!important; }
+  .card-info {
+    margin-right: 0rem!important;
+    margin-left: 0rem!important;
+    width: 100%!important;
+    align-content: center!important;
+    justify-content: center!important;
+    align-items: center!important;
+   }
+   .card-info-box .row {
+      justify-content: center!important;
+   }
+   .col-head {
+     flex-basis: 0%!important;
+   }
+}
+
 .row-top {
   padding-top: 4vw
 }
