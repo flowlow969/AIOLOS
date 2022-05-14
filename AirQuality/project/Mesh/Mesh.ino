@@ -12,7 +12,7 @@ int nodeNumber = 1;
 
 // MESH Einstellungen
 #define   MESH_PREFIX     "AIOLOS" //name vom mesh
-#define   MESH_PASSWORD   "MESHpassword" //Passwort vom mesh
+#define   MESH_PASSWORD   "somethingsneaky" //Passwort vom mesh
 #define   MESH_PORT       5555 // port
 
 
