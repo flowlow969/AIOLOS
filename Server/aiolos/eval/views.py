@@ -22,12 +22,13 @@ def home(request):
         flag = 0
         for data in dataset:
             sen_info = sen.esbid_type.split("_")
-            esp_num = sen_info[0]
+            esp_num = int(sen_info[0])
             sen_type = sen_info[1]
 
             if flag == 0:
                 data_liste.append(esp_num)
                 data_liste.append(sen_type)
+                data_liste.append(sen.gase)
                 flag = 1
 
             data_liste.append(data.messwert)
@@ -48,7 +49,7 @@ def home(request):
     
     #datas = Daten.objects.all()
 
-    return render(request, 'home.html', {})
+    return render(request, 'home.html', {"sen_liste": sen_liste})
 
 
 def feed_data(request):
