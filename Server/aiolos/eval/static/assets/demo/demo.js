@@ -66,6 +66,12 @@ demo = {
   },
   initDashboardPageCharts: function() {
 
+    let a = JSON.parse(document.getElementById('sen_liste').textContent);
+    console.log(a);
+
+
+
+
     gradientChartOptionsConfigurationWithTooltipPurple = {
       maintainAspectRatio: false,
       legend: {

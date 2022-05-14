@@ -200,7 +200,7 @@
         </div>
 </div>
    
-{{ var_1|json_script:"var-1-json" }}
+{{ sen_liste|json_script:"sen_liste" }}
 
 {% endblock content %}
 
@@ -208,8 +208,8 @@
 {% block javascripts %}
 
   <script>
-        let a = JSON.parse(document.getElementById('var-1-json').textContent);
-        
+        let a = JSON.parse(document.getElementById('sen_liste').textContent);
+        console.log(a);
     $(document).ready(function() {
 
       // Javascript method's body can be found in assets/js/demos.js
