@@ -1,6 +1,6 @@
 #include "structs.h"
 
-#define MYDEBUG
+//#define MYDEBUG
 
 void setup() {
   Serial.begin(115200);
