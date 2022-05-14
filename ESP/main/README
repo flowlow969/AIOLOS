@@ -1,0 +1,19 @@
+ESP0: -- normale raum luft
+	MQ-135
+	MQ-7
+
+
+ESP1: 
+	MQ-135
+	MQ-8
+	MQ-3
+
+ESP2:  --tankstelle gas
+	MQ-4
+	MQ-5
+	MQ-6
+
+ESP3:  --Feuermelden
+	MQ-135
+	MQ-9
+	MQ-2

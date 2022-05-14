@@ -1,5 +1,10 @@
 #include "painlessMesh.h"
-#include "Device_config.h"
+#include "configs/Device_config0.h"
+//#include "configs/Device_config1.h"
+//#include "configs/Device_config2.h"
+//#include "configs/Device_config3.h"
+
+
 
 #define ANALOG_PIN 34
 

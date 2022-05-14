@@ -4,35 +4,35 @@
 #include "../structs.h"
 
 Sensor s0 = {
-  .typ = MQ_4,
+  .typ = MQ_135,
   .value = 0,
   .adc = 0,
-  .rangeMin = 0,
-  .rangeMax = 10000
+  .rangeMin = 10,
+  .rangeMax = 1000
 };
 Sensor s1 = {
-  .typ = MQ_5,
+  .typ = MQ_9,
   .value = 0,
   .adc = 1,
-  .rangeMin = 0,
+  .rangeMin = 100,
   .rangeMax = 10000
 };
 Sensor s2 = {
-  .typ = MQ_NONE,
+  .typ = MQ_2,
   .value = 0,
-  .adc = 0,
-  .rangeMin = 0,
-  .rangeMax = 0
+  .adc = 2,
+  .rangeMin = 300,
+  .rangeMax = 10000
 };
 Sensor s3 = {
   .typ = MQ_NONE,
   .value = 0,
-  .adc = 0,
+  .adc = -1,
   .rangeMin = 0,
   .rangeMax = 0
 };
 Node device = {
-  .id = 2,
+  .id = 3,
   .sensor0 = s0,
   .sensor1 = s1,
   .sensor2 = s2,
