@@ -6,73 +6,198 @@
 {% block stylesheets %}{% endblock stylesheets %}
 
 {% block content %}
-
-    <div class="row">
-
-      <div class="col-12">
-        <div class="card card-chart">
-          <div class="card-header ">
-            <div class="row">
-              <div class="col-sm-6 text-left">
+<div class="container">
+    <div class="col-2">
+        <p>hello</p>
+    </div>
+    <div class="col-8">
+        <div class="row row-top">
+            <div class="col-7">
+                <div class="card card-chart">
+                    <div class="card-header">
+                        <div class="row">
+                            <div class="col-head text-left">
+                                <h5 class="card-category">Gaswerte</h5>
+                                <h2 class="card-title">Grafik</h2>
+                            </div>
+                            <div class="col-head">
+                                <div class="warnings">
+                                    <div class="warning red"></div>
+                                    <div class="warning yellow"></div>
+                                    <div class="warning green"></div>
+                                </div>
+                            </div>
+                            <div class="col-message">
+                                <p class="message">Achtung</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="chart-area">
+                            <canvas id="chartBig1"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-3">
+                <div class="card card-info-box">
+                    <div class="card-header">
+                        <div class="row">
+                            <div class="col-head text-left">
+                                <h5 class="card-category">Gaswerte</h5>
+                                <h2 class="card-title">INFO</h2>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-info">
+                        <p>ESP-ID: XXXXXXX</p>
+                        <p>Sensor-1-Type: XXXXXX</p>
+                        <p>Sensor-2-Type: XXXXXX</p>
+                        <p>Sensor-3-Type: XXXXXX</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-7">
+                <div class="card card-chart">
+                    <div class="card-header">
+                        <div class="row">
+                            <div class="col-head text-left">
+                                <h5 class="card-category">Gaswerte</h5>
+                                <h2 class="card-title">Grafik</h2>
+                            </div>
+                            <div class="col-head">
+                                <div class="warnings">
+                                    <div class="warning red"></div>
+                                    <div class="warning yellow"></div>
+                                    <div class="warning green"></div>
+                                </div>
+                            </div>
+                            <div class="col-message">
+                                <p class="message">Achtung</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="chart-area">
+                            <canvas id="chartBig2"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-3">
+                <div class="card card-info-box">
+                    <div class="card-header">
+                        <div class="row">
+                            <div class="col-head text-left">
+                                <h5 class="card-category">Gaswerte</h5>
+                                <h2 class="card-title">INFO</h2>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-info">
+                        <p>ESP-ID: XXXXXXX</p>
+                        <p>Sensor-1-Type: XXXXXX</p>
+                        <p>Sensor-2-Type: XXXXXX</p>
+                        <p>Sensor-3-Type: XXXXXX</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-7">
+                <div class="card card-chart">
+                    <div class="card-header">
+                        <div class="row">
+                            <div class="col-head text-left">
+                                <h5 class="card-category">Gaswerte</h5>
+                                <h2 class="card-title">Grafik</h2>
+                            </div>
+                            <div class="col-head">
+                                <div class="warnings">
+                                    <div class="warning red"></div>
+                                    <div class="warning yellow"></div>
+                                    <div class="warning green"></div>
+                                </div>
+                            </div>
+                            <div class="col-message">
+                                <p class="message">Achtung</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="chart-area">
+                            <canvas id="chartBig3"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-3">
+                <div class="card card-info-box">
+                    <div class="card-header">
+                        <div class="row">
+                            <div class="col-head text-left">
+                                <h5 class="card-category">Gaswerte</h5>
+                                <h2 class="card-title">INFO</h2>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-info">
+                        <p>ESP-ID: XXXXXXX</p>
+                        <p>Sensor-1-Type: XXXXXX</p>
+                        <p>Sensor-2-Type: XXXXXX</p>
+                        <p>Sensor-3-Type: XXXXXX</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+          
+        <div class="row">
+          <div class="col-lg-4">
+            <div class="card card-chart">
+              <div class="card-header">
                 <h5 class="card-category">Gaswerte</h5>
-                <h2 class="card-title">Langzeitmessung</h2>
+                <h3 class="card-title"><i class="tim-icons icon-bell-55 text-primary"></i>Letze 30 Minuten</h3>
               </div>
-              <div class="col-sm-6">
-
+              <div class="card-body">
+                <div class="chart-area">
+                  <canvas id="chartLinePurple"></canvas>
+                </div>
               </div>
             </div>
           </div>
-          <div class="card-body">
-            <div class="chart-area">
-              <canvas id="chartBig1"></canvas>
+          <div class="col-lg-4">
+            <div class="card card-chart">
+              <div class="card-header">
+                <h5 class="card-category">Kurzeitmessung</h5>
+                <h3 class="card-title"><i class="tim-icons icon-delivery-fast text-info"></i>Letzte 30 Minuten</h3>
+              </div>
+              <div class="card-body">
+                <div class="chart-area">
+                  <canvas id="CountryChart"></canvas>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="card card-chart">
+              <div class="card-header">
+                <h5 class="card-category">Kurzzeitmessung</h5>
+                <h3 class="card-title"><i class="tim-icons icon-send text-success"></i>Pie Chart</h3>
+              </div>
+              <div class="card-body">
+                <div class="chart-area">
+                  <canvas id="chartLineGreen"></canvas>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-
-    </div>
-    <div class="row">
-      <div class="col-lg-4">
-        <div class="card card-chart">
-          <div class="card-header">
-            <h5 class="card-category">Gaswerte</h5>
-            <h3 class="card-title"><i class="tim-icons icon-bell-55 text-primary"></i>Letze 30 Minuten</h3>
-          </div>
-          <div class="card-body">
-            <div class="chart-area">
-              <canvas id="chartLinePurple"></canvas>
-            </div>
-          </div>
         </div>
-      </div>
-      <div class="col-lg-4">
-        <div class="card card-chart">
-          <div class="card-header">
-            <h5 class="card-category">Kurzeitmessung</h5>
-            <h3 class="card-title"><i class="tim-icons icon-delivery-fast text-info"></i>Letzte 30 Minuten</h3>
-          </div>
-          <div class="card-body">
-            <div class="chart-area">
-              <canvas id="CountryChart"></canvas>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-4">
-        <div class="card card-chart">
-          <div class="card-header">
-            <h5 class="card-category">Kurzzeitmessung</h5>
-            <h3 class="card-title"><i class="tim-icons icon-send text-success"></i>Pie Chart</h3>
-          </div>
-          <div class="card-body">
-            <div class="chart-area">
-              <canvas id="chartLineGreen"></canvas>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    
+</div>
+   
+ 
 {% endblock content %}
 
 <!-- Specific Page JS goes HERE  -->
