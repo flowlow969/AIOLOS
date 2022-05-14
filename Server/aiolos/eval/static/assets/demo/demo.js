@@ -85,7 +85,7 @@ demo = {
 
     for (let i = 0; i < lengthVals; i++) {
 
-      if(sensorVals[i][0] == 7) {
+      if(sensorVals[i][0] == 0) {
         
         var sensorTimeValues = sensorVals[i].slice(3);
 
@@ -107,6 +107,7 @@ demo = {
           var temp = timetemparray[k].slice(14,-5)
           timeCutarray.push(temp);
         }
+
         senVals1.push(temparray);
         senTimes1.push(timeCutarray);
         console.log(senVals1);
@@ -134,6 +135,7 @@ demo = {
           var temp = timetemparray[k].slice(14,-5)
           timeCutarray.push(temp);
         }
+        
         senVals2.push(temparray);
         senTimes2.push(timeCutarray);
         console.log(senVals2);
@@ -187,6 +189,10 @@ demo = {
           var temp = timetemparray[k].slice(14,-5)
           timeCutarray.push(temp);
         }
+        console.log("SENSOR 3")
+        console.log(senVals4)
+        console.log(senTimes4)
+
         senVals4.push(temparray);
         senTimes4.push(timeCutarray);
         console.log(senVals4);
@@ -328,7 +334,7 @@ demo = {
       options: gradientChartOptionsConfigurationWithTooltipPurple
     });
 */
-    var chart_labels = senTimes1[3];
+    var chart_labels = senTimes1[1];
   
     
 
@@ -601,7 +607,7 @@ demo = {
 
 
  
-    var chart_labels = senTimes4[3];
+    var chart_labels = senTimes4[1];
     var ctx = document.getElementById("chartBig4").getContext('2d');
 
     var gradientStroke = ctx.createLinearGradient(0, 230, 0, 50);
@@ -614,22 +620,74 @@ demo = {
       data: {
         labels: chart_labels,
         datasets: [{
-          label: "My First dataset",
+          label: "Sensor 1",
           fill: true,
           backgroundColor: gradientStroke,
-          borderColor: '#d346b1',
+          borderColor: 'rgba(53,126,216,1)',
           borderWidth: 2,
           borderDash: [],
           borderDashOffset: 0.0,
-          pointBackgroundColor: '#d346b1',
-          pointBorderColor: 'rgba(255,255,255,0)',
-          pointHoverBackgroundColor: '#d346b1',
+          pointBackgroundColor: 'rgba(53,126,216,1)',
+          pointBorderColor: 'rgba(53,126,216,0)',
+          pointHoverBackgroundColor: 'rgba(53,126,216,1)',
+          pointBorderWidth: 20,
+          pointHoverRadius: 4,
+          pointHoverBorderWidth: 15,
+          pointRadius: 2,
+          data: senVals4[0],
+        },
+        {
+          label: "Sensor 2",
+          fill: true,
+          backgroundColor: gradientStroke,
+          borderColor: 'rgba(245,245,245,1)',
+          borderWidth: 2,
+          borderDash: [],
+          borderDashOffset: 0.0,
+          pointBackgroundColor: 'rgba(245,245,245,1)',
+          pointBorderColor: 'rgba(245,245,245,0)',
+          pointHoverBackgroundColor: 'rgba(245,245,245,1)',
           pointBorderWidth: 20,
           pointHoverRadius: 4,
           pointHoverBorderWidth: 15,
           pointRadius: 4,
-          data: chart_data,
-        }]
+          data: senVals4[1],
+        },
+        {
+          label: "Sensor 3",
+          fill: true,
+          backgroundColor: gradientStroke,
+          borderColor: 'rgba(113,190,198,1)',
+          borderWidth: 2,
+          borderDash: [],
+          borderDashOffset: 0.0,
+          pointBackgroundColor: 'rgba(113,190,198,1)',
+          pointBorderColor: 'rgba(113,190,198,0)',
+          pointHoverBackgroundColor: 'rgba(113,190,198,1)',
+          pointBorderWidth: 20,
+          pointHoverRadius: 4,
+          pointHoverBorderWidth: 15,
+          pointRadius: 4,
+          data: senVals4[2],
+        },
+        {
+          label: "Sensor 4",
+          fill: true,
+          backgroundColor: gradientStroke,
+          borderColor: 'rgba(10,94,134,1)',
+          borderWidth: 2,
+          borderDash: [],
+          borderDashOffset: 0.0,
+          pointBackgroundColor: 'rgba(10,94,134,1)',
+          pointBorderColor: 'rgba(10,94,134,0)',
+          pointHoverBackgroundColor: 'rgba(10,94,134,1)',
+          pointBorderWidth: 20,
+          pointHoverRadius: 4,
+          pointHoverBorderWidth: 15,
+          pointRadius: 4,
+          data: senVals4[3],
+        }
+      ]
       },
       options: gradientChartOptionsConfigurationWithTooltipPurple
     };

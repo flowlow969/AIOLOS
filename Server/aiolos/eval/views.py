@@ -2,7 +2,8 @@ from xml.sax import default_parser_list
 from django.shortcuts import render,redirect
 import json
 from eval.models import Sensor, Daten
-
+from django.views.decorators.csrf import csrf_exempt
+from django.http import HttpResponse
 
 
 
@@ -13,7 +14,16 @@ def home(request):
     esp_id_liste = []
     esp_id_liste_no_dup = []
 
-    sensors = Sensor.objects.all()
+    sensors = Sensor.objects.all().order_by('esbid_type')
+    print("HALLLOOOOOOOOOOOO")
+    print(sensors)
+    sensorsZero = sensors.filter(esbid_type__contains='0_')
+    sensorsOne = sensors.filter(esbid_type__contains='1_')
+    sensorsTwo = sensors.filter(esbid_type__contains='2_')
+    sensorsThree = sensors.filter(esbid_type__contains='3_')
+    print("=============================================")
+    print(sensorsOne)
+
     datenobj = Daten.objects.all()
     for sen in sensors:
     #     dataset = sen.daten_set.exclude(sensor_id__exact="")
@@ -46,18 +56,20 @@ def home(request):
     print("!!!!",esp_id_liste_no_dup)
     print(sen_liste)
 
+    
 
-    return render(request, 'home.html', {"sen_liste": sen_liste, 'esp_id_list_no_dup': esp_id_liste_no_dup})  #alle ids als liste,   
+    return render(request, 'home.html', {"sen_liste": sen_liste, 'esp_id_list_no_dup': esp_id_liste_no_dup, 'sensors': sensors, 'sensorsZero': sensorsZero, 'sensorsOne': sensorsOne, 'sensorsTwo': sensorsTwo, 'sensorsThree': sensorsThree })  #alle ids als liste,   
 
-
+@csrf_exempt
 def feed_data(request):
     # if request=="POST":
     #     receiced_json = request.body.decode('utf-8')
     #     x = json.loads(receiced_json)
 
-    example_json = '{"Node" : 7,"Sensors" : [{"Type": "MQ-2", "Value": 95}, {"Type": "MQ-135", "Value": 70},{"Type": "MQ-8", "Value": 70}, {"Type": "MQ-86", "Value": 70}, {"Type": "MQ-8", "Value": 450}]}'
+    #example_json = '{"Node" : 7,"Sensors" : [{"Type": "MQ-2", "Value": 95}, {"Type": "MQ-135", "Value": 70},{"Type": "MQ-8", "Value": 70}, {"Type": "MQ-86", "Value": 70}, {"Type": "MQ-8", "Value": 450}]}'
 
-    x = json.loads(example_json)
+    #x = json.loads(example_json)
+    x = json.loads(request.body)
 
     node = x["Node"]
     for i in range(len(x["Sensors"])):
@@ -77,7 +89,7 @@ def feed_data(request):
         else:
             print("The Sensor", type, "is not known")   
 
-    return render(request, 'home.html', {})
+    return HttpResponse("Data saved")
     
 
 
