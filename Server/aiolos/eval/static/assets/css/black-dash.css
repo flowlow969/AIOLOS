@@ -145,6 +145,7 @@ h6, .h6 {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  margin-left: 15vw;
 }
 
 .col-4 {
@@ -164,7 +165,9 @@ h6, .h6 {
 .col-8 {
   flex: 0 0 80%;
   max-width: 80%; }
-
+  .col-10 {
+    flex: 0 0 90%;
+    max-width: 90%; }
 @media (min-width: 992px) {
   .col-lg {
     flex-basis: 0;
@@ -289,7 +292,34 @@ h6, .h6 {
   @media screen and (max-width: 991px) and (prefers-reduced-motion: reduce) {
     .sidebar {
       transition: none; } }
+     
+      .sidenav {
+        height: 100%;
+        width: 15vw;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        background: #27293d;
+        overflow-x: hidden;
+        padding-top: 5vw;
+      }
       
+      .sidenav a {
+        border: 2px solid rgba(255,255,255,1);
+        border-radius: 10px;
+        padding: 6px 8px 6px 16px;
+        text-decoration: none;
+        font-size: 25px;
+        color: white;
+        display: block;
+        margin-bottom: 2vw;
+      }
+      
+      .sidenav a:hover {
+        color: #f1f1f1;
+      }
+
 .card {
   background: #27293d;
   border: 0;
