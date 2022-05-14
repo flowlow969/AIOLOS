@@ -23,12 +23,12 @@ void readGasPercentage(Sensor &sensor) {
   //Messwert in den Richtigen Rahmen mappen
   gasValMapped = map(gasVal, ACDLOWERBOUND, ACDUPPERBOUND,  sensor.rangeMin, sensor.rangeMax);
   //Messwert Prüfen
-  if (isnan(gasVal)) {
+  if (isnan(gasValMapped)) {
     myDebug("Fehler beim Auslessen des Sensors\n");
     sensor.value = -1;
   }
   else {
-    sensor.value = gasVal;
+    sensor.value = gasValMapped;
   }
 }
 
