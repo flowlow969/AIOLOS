@@ -1,6 +1,6 @@
 #include "painlessMesh.h"
 #include "configs/Device_config0.h"
-//#include "configs/Device_config1.h"
+//include "configs/Device_config1.h"
 //#include "configs/Device_config2.h"
 //#include "configs/Device_config3.h"
 
@@ -22,7 +22,7 @@ painlessMesh  mesh;
 void sendMessage() ; // Prototype so PlatformIO doesn't complain
 
 //Create tasks: to send messages and get readings;
-Task taskSendMessage(TASK_SECOND * 5 , TASK_FOREVER, &sendMessage);
+Task taskSendMessage(TASK_SECOND * 10 , TASK_FOREVER, &sendMessage);
 
 
 
@@ -42,8 +42,6 @@ void receivedCallback( uint32_t from, String &msg ) {
 
 void MeshSetup() {
   //mesh.setDebugMsgTypes( ERROR | MESH_STATUS | CONNECTION | SYNC | COMMUNICATION | GENERAL | MSG_TYPES | REMOTE ); // all types on
-  mesh.setDebugMsgTypes( ERROR | STARTUP );  // set before init() so that you can see startup messages
-
   mesh.init( MESH_PREFIX, MESH_PASSWORD, &userScheduler, MESH_PORT );
   mesh.onReceive(&receivedCallback);
   mesh.onNewConnection(&newConnectionCallback);
@@ -53,26 +51,20 @@ void MeshSetup() {
   userScheduler.addTask(taskSendMessage);
   taskSendMessage.enable();
 }
-void MeshUpdate(){
-    mesh.update();
+void MeshUpdate() {
+  mesh.update();
 }
 
 
 
 void newConnectionCallback(uint32_t nodeId) {
-#ifdef DEBUG
-  myDebug("New Connection, nodeId = %u\n", nodeId);
-#endif
+// myDebug("New Connection, nodeId = %u\n", nodeId);
 }
 
 void changedConnectionCallback() {
-#ifdef DEBUG
   myDebug("Changed connections\n");
-#endif
 }
 
 void nodeTimeAdjustedCallback(int32_t offset) {
-#ifdef DEBUG
-  myDebug("Adjusted time %u. Offset = %d\n", mesh.getNodeTime(), offset);
-#endif
+  //myDebug("Adjusted time %u. Offset = %d\n", mesh.getNodeTime(), offset);
 }
