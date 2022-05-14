@@ -79,6 +79,12 @@ h6, .h6 {
   flex-wrap: wrap;
   padding-bottom: 4vw;
  }
+ @media only screen and (max-width: 600px) {
+  .col-10 > .row {
+    flex-direction: column;
+  }
+}
+
 .row-top {
   padding-top: 4vw
 }

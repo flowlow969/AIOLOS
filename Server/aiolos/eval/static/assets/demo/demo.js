@@ -1,3 +1,12 @@
+document.addEventListener("DOMContentLoaded", function() {
+    const sensorDict = JSON.parse(document.getElementById('sen_liste').textContent);
+    
+    print(sensorDict)
+        
+    });
+
+
+
 type = ['primary', 'info', 'success', 'warning', 'danger'];
 
 demo = {
