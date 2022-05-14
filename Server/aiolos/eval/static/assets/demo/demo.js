@@ -289,7 +289,7 @@ demo = {
       }
     };
 
-    var ctx = document.getElementById("chartLinePurple").getContext("2d");
+   /* var ctx = document.getElementById("chartLinePurple").getContext("2d");
 
     var gradientStroke = ctx.createLinearGradient(0, 230, 0, 50);
 
@@ -327,7 +327,7 @@ demo = {
       data: data,
       options: gradientChartOptionsConfigurationWithTooltipPurple
     });
-
+*/
     var chart_labels = senTimes1[3];
   
     
@@ -503,17 +503,13 @@ demo = {
       options: gradientChartOptionsConfigurationWithTooltipPurple
     };
     var myChartData = new Chart(ctx, config);
+
+
     var ctx = document.getElementById("chartBig3").getContext('2d');
 
 
-
-
-
-
-
-    var chart_labels = senTimes3[3];
-  
-    
+    var chart_labels = senTimes3[1];
+    console.log(chart_labels);  
 
     var ctx = document.getElementById("chartBig3").getContext('2d');
 
@@ -599,13 +595,6 @@ demo = {
       options: gradientChartOptionsConfigurationWithTooltipPurple
     };
     var myChartData = new Chart(ctx, config);
-
-
-
-
-
-
-
 
 
 
