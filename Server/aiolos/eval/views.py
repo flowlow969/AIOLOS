@@ -14,21 +14,22 @@ def home(request):
     esp_id_liste = []
     esp_id_liste_no_dup = []
 
+    ampellist = []
+    
+    schwellewerte_kohlenstoffmonoxid = [800, 1400]
+
     sensors = Sensor.objects.all().order_by('esbid_type')
-    print("HALLLOOOOOOOOOOOO")
-    print(sensors)
+    
+   
     sensorsZero = sensors.filter(esbid_type__contains='0_')
     sensorsOne = sensors.filter(esbid_type__contains='1_')
     sensorsTwo = sensors.filter(esbid_type__contains='2_')
     sensorsThree = sensors.filter(esbid_type__contains='3_')
-    print("=============================================")
-    print(sensorsOne)
+
 
     datenobj = Daten.objects.all()
     for sen in sensors:
-    #     dataset = sen.daten_set.exclude(sensor_id__exact="")
-    #     liste.append(dataset)
-    # print(liste)
+      
         dataset = sen.daten_set.all()
  
         flag = 0
@@ -44,31 +45,41 @@ def home(request):
                 esp_id_liste.append(esp_num)
                 flag = 1
 
+
+            schwellwert = get_schwellwert(sen_type)
+            if schwellwert - data.messwert > 0:
+                ampel = 0
+            else:
+                ampel = 1
+            
+            
+
+                 
+                 
             data_liste.append([data.messwert, data.time_recorded])
-            #print(esp_num, sen_type, data.messwert)
+    
         sen_liste.append(data_liste)
+        ampellist.append([sen.esbid_type, ampel])
+        print(ampellist)
         data_liste = []
+        ampellist = []
 
         for i in esp_id_liste:
             if i not in esp_id_liste_no_dup:
                 esp_id_liste_no_dup.append(i)
 
-    print("!!!!",esp_id_liste_no_dup)
+
     print(sen_liste)
+
 
     
 
-    return render(request, 'home.html', {"sen_liste": sen_liste, 'esp_id_list_no_dup': esp_id_liste_no_dup, 'sensors': sensors, 'sensorsZero': sensorsZero, 'sensorsOne': sensorsOne, 'sensorsTwo': sensorsTwo, 'sensorsThree': sensorsThree })  #alle ids als liste,   
+    return render(request, 'home.html', {"sen_liste": sen_liste, 'esp_id_list_no_dup': esp_id_liste_no_dup, 'sensors': sensors, 'sensorsZero': sensorsZero, 'sensorsOne': sensorsOne, 'sensorsTwo': sensorsTwo, 'sensorsThree': sensorsThree, 'ampellist' :ampellist })  #alle ids als liste,   
+
 
 @csrf_exempt
 def feed_data(request):
-    # if request=="POST":
-    #     receiced_json = request.body.decode('utf-8')
-    #     x = json.loads(receiced_json)
 
-    #example_json = '{"Node" : 7,"Sensors" : [{"Type": "MQ-2", "Value": 95}, {"Type": "MQ-135", "Value": 70},{"Type": "MQ-8", "Value": 70}, {"Type": "MQ-86", "Value": 70}, {"Type": "MQ-8", "Value": 450}]}'
-
-    #x = json.loads(example_json)
     x = json.loads(request.body)
 
     node = x["Node"]
@@ -110,3 +121,20 @@ def get_gas(type_gas):
     except KeyError:
         return "Unknown"
 
+
+def get_schwellwert(gas_schwellwert):
+    try:
+        return {
+                'MQ-2': 10000,
+                'MQ-3': 7000,
+                'MQ-4': 1500,
+                'MQ-5': 7500,
+                'MQ-6': 7500,
+                'MQ-7': 200,
+                'MQ-8': 800,
+                'MQ-9': 200,
+                'MQ-135': 800,
+
+        }[gas_schwellwert]
+    except KeyError:
+        return 0
