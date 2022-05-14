@@ -44,6 +44,11 @@ int readGasPercentig(){
     return -1;
   }
   else {
+    Serial.print("Node: ");
+    Serial.println(nodeNumber);
+    Serial.print("Gas concentraton: ");
+    Serial.print(gasVal);
+    Serial.println(" %");
     return gasVal;
   }
 }
@@ -114,4 +119,8 @@ void setup() {
 
 void loop() {
   mesh.update();
+ 
+  digitalWrite(HEAT_LED_PIN, LOW);
+  delay(500);
+  digitalWrite(HEAT_LED_PIN, HIGH);
 }
