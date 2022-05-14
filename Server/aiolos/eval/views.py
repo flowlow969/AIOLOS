@@ -7,7 +7,28 @@ from eval.models import Sensor, Daten
 
 # Create your views here.
 def home(request):
-    return render(request, 'home.html', {})
+    liste = []
+    sensors = Sensor.objects.all()
+    datenobj = Daten.objects.all()
+    # for sen in sensors:
+    #     dataset = sen.daten_set.exclude(sensor_id__exact="")
+    #     liste.append(dataset)
+    # print(liste)
+
+    for daten in datenobj:
+        pass
+
+
+    # sen = Sensor.objects.get(pk='7_MQ-8')
+    # dataset = sen.daten_set.exclude(sensor_id__exact="")
+    # print("!!!!!",dataset)
+    #print(daes.sensor_id)
+    
+    
+    #datas = Daten.objects.all()
+
+
+    return render(request, 'home.html', {'sensors' : sensors})
 
 
 def feed_data(request):
