@@ -1,6 +1,8 @@
 #include "structs.h"
 #include "Device_config.h"
 
+#define MYDEBUG
+
 void setup() {
   Serial.begin(115200);
   

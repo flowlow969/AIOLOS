@@ -4,8 +4,8 @@
 #define ANALOG_PIN 34
 
 // MESH Details
-#define   MESH_PREFIX     "RNTMESH" //name for your MESH
-#define   MESH_PASSWORD   "MESHpassword" //password for your MESH
+#define   MESH_PREFIX     "AIOLOSmesh" //name for your MESH
+#define   MESH_PASSWORD   "somethingsneaky" //password for your MESH
 #define   MESH_PORT       5555 //default port
 
 
