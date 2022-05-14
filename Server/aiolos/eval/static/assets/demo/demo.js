@@ -113,7 +113,7 @@ demo = {
         
       }
       
-      else if(sensorVals[i][0] == 2) {
+      else if(sensorVals[i][0] == 1) {
         
         var sensorTimeValues = sensorVals[i].slice(3);
 
@@ -139,7 +139,7 @@ demo = {
         console.log(senVals2);
 
       }
-      else if(sensorVals[i][0] == 3) {
+      else if(sensorVals[i][0] == 2) {
         
         var sensorTimeValues = sensorVals[i].slice(3);
 
@@ -162,10 +162,11 @@ demo = {
         }
         senVals3.push(temparray);
         senTimes3.push(timeCutarray);
+        console.log("hierrrrrHIERIRIRRIRIRIRI");
         console.log(senVals3);
-
+        console.log(senTimes3);
       }
-      else if(sensorVals[i][0] == 4) {
+      else if(sensorVals[i][0] == 3) {
         
         var sensorTimeValues = sensorVals[i].slice(3);
 
@@ -175,7 +176,7 @@ demo = {
         
         var temparray = [];
         var timetemparray = [];
-        
+
         for (let j = 0; j < lengthSensorTimeValues; j++) {
           console.log(sensorTimeValues[j][0]);
           temparray.push(sensorTimeValues[j][0]);
@@ -415,10 +416,9 @@ demo = {
       options: gradientChartOptionsConfigurationWithTooltipPurple
     };
     var myChartData = new Chart(ctx, config);
-    var chart_labels = ['00:00', '00:05', '00:10', '00:15', '00:20', '00:25', '00:30', '00:35', '00:40', '00:45'];
-    var chart_data = [100, 70, 90, 70, 85, 60, 75, 60, 90, 80];
-    
 
+    var chart_labels = senTimes2[3];
+    
     var ctx = document.getElementById("chartBig2").getContext('2d');
 
     var gradientStroke = ctx.createLinearGradient(0, 230, 0, 50);
@@ -505,6 +505,18 @@ demo = {
     var myChartData = new Chart(ctx, config);
     var ctx = document.getElementById("chartBig3").getContext('2d');
 
+
+
+
+
+
+
+    var chart_labels = senTimes3[3];
+  
+    
+
+    var ctx = document.getElementById("chartBig3").getContext('2d');
+
     var gradientStroke = ctx.createLinearGradient(0, 230, 0, 50);
 
     gradientStroke.addColorStop(1, 'rgba(72,72,176,0.1)');
@@ -587,6 +599,20 @@ demo = {
       options: gradientChartOptionsConfigurationWithTooltipPurple
     };
     var myChartData = new Chart(ctx, config);
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+    var chart_labels = senTimes4[3];
     var ctx = document.getElementById("chartBig4").getContext('2d');
 
     var gradientStroke = ctx.createLinearGradient(0, 230, 0, 50);
