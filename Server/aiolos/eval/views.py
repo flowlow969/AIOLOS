@@ -15,7 +15,7 @@ def feed_data(request):
     #     receiced_json = request.body.decode('utf-8')
     #     x = json.loads(receiced_json)
 
-    example_json = '{"Node" : 7,"Sensors" : [{"Type": "MQ-2", "Value": 95}, {"Type": "MQ-135", "Value": 70},{"Type": "MQ-8", "Value": 70}]}'
+    example_json = '{"Node" : 7,"Sensors" : [{"Type": "MQ-2", "Value": 95}, {"Type": "MQ-135", "Value": 70},{"Type": "MQ-8", "Value": 70}, {"Type": "MQ-86", "Value": 70}]}'
 
     x = json.loads(example_json)
 
@@ -39,6 +39,7 @@ def feed_data(request):
 
 
 def get_gas(type_gas):
+    try:
         return {
                 'MQ-2': "LPG, i-Butan, Propan, Methan, Alkohol, Wasserstoff, Rauch",
                 'MQ-3': "Alkohol, Ethanol",
@@ -51,3 +52,6 @@ def get_gas(type_gas):
                 'MQ-135': "Benzol, Alkohol, Rauch",
 
         }[type_gas]
+    except KeyError:
+        return "Unknown"
+
