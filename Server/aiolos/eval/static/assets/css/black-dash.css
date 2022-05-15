@@ -77,6 +77,9 @@ ol ul,
 ul ol {
   margin-bottom: 0; }
 
+.hide_de {
+  opacity: 0;
+}
 h1, .h1 {
   font-size: 2.0625rem; }
 
@@ -253,8 +256,8 @@ a > img {
     max-width: 100%; }
  
   .col-lg-4 {
-    flex: 0 0 33.33333%;
-    max-width: 33.33333%; }
+    flex: 0 0 50%;
+    max-width: 50%; }
   }
 
 .card-chart-body {

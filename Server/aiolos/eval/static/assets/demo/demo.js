@@ -1,6 +1,9 @@
  
 
-
+setTimeout(function () {
+  window.location.reload(1);
+  console.log("Demo")
+}, 10000)
 
 type = ['primary', 'info', 'success', 'warning', 'danger'];
 
@@ -82,7 +85,8 @@ demo = {
     lengthVals = sensorVals.length;
 
     console.log(lengthVals);
-
+    var curarray = [];
+    var curarray2 = [];
     for (let i = 0; i < lengthVals; i++) {
 
       if(sensorVals[i][0] == 0) {
@@ -95,6 +99,7 @@ demo = {
         
         var temparray = [];
         var timetemparray = [];
+        
 
         for (let j = 0; j < lengthSensorTimeValues; j++) {
           console.log(sensorTimeValues[j][0]);
@@ -107,10 +112,14 @@ demo = {
           var temp = timetemparray[k].slice(14,-5)
           timeCutarray.push(temp);
         }
-
+        for (let w = 0; w < lengthSensorTimeValues; w++) {
+          curarray.push(800)
+          curarray2.push(200)
+        }
         senVals1.push(temparray);
         senTimes1.push(timeCutarray);
         console.log(senVals1);
+
         
       }
       
@@ -199,8 +208,10 @@ demo = {
 
       }
 
-    }   
-    
+    } 
+    senVals1.push(curarray);  
+    senVals1.push(curarray2); 
+
     gradientChartOptionsConfigurationWithTooltipPurple = {
       maintainAspectRatio: false,
       legend: {
@@ -295,7 +306,7 @@ demo = {
       }
     };
 
-   /* var ctx = document.getElementById("chartLinePurple").getContext("2d");
+    var ctx = document.getElementById("chartLinePurple").getContext("2d");
 
     var gradientStroke = ctx.createLinearGradient(0, 230, 0, 50);
 
@@ -304,36 +315,106 @@ demo = {
     gradientStroke.addColorStop(0, 'rgba(119,52,169,0)'); //purple colors
 
     var data = {
-      labels: ['00:20', '00:25', '00:30', '00:35', '00:40', '00:45'],
+      labels: senTimes1[1],
       datasets: [{
         label: "Data",
         fill: true,
         backgroundColor: gradientStroke,
-        borderColor: '#d048b6',
+        borderColor: 'rgba(53,126,216,1)',
         borderWidth: 2,
         borderDash: [],
         borderDashOffset: 0.0,
-        pointBackgroundColor: '#d048b6',
-        pointBorderColor: 'rgba(255,255,255,0)',
-        pointHoverBackgroundColor: '#d048b6',
+        pointBackgroundColor: 'rgba(53,126,216,1)',
+        pointBorderColor: 'rgba(53,126,216,0)',
+        pointHoverBackgroundColor: 'rgba(53,126,216,1)',
+      
         pointBorderWidth: 20,
         pointHoverRadius: 4,
         pointHoverBorderWidth: 15,
         pointRadius: 4,
-        data: [80, 100, 70, 80, 120, 80],
-      },]
+        data: senVals1[1],
+      },
+      {
+        label: "Data",
+        fill: true,
+        backgroundColor: gradientStroke,
+        borderColor: 'rgba(255,0,0,1)',
+        borderWidth: 2,
+        borderDash: [],
+        borderDashOffset: 0.0,
+        pointBackgroundColor: 'rgba(255,0,0,1)',
+        pointBorderColor: 'rgba(255,0,0,0)',
+        pointHoverBackgroundColor: 'rgba(255,0,0,1)',
+      
+        pointBorderWidth: 20,
+        pointHoverRadius: 4,
+        pointHoverBorderWidth: 15,
+        pointRadius: 4,
+        data: senVals1[3],
+      }
+    ]
     };
-
-
-
-
 
     var myChart = new Chart(ctx, {
       type: 'line',
       data: data,
       options: gradientChartOptionsConfigurationWithTooltipPurple
     });
-*/
+
+    var ctx = document.getElementById("chartLineG").getContext("2d");
+
+    var gradientStroke = ctx.createLinearGradient(0, 230, 0, 50);
+
+    gradientStroke.addColorStop(1, 'rgba(72,72,176,0.2)');
+    gradientStroke.addColorStop(0.2, 'rgba(72,72,176,0.0)');
+    gradientStroke.addColorStop(0, 'rgba(119,52,169,0)'); //purple colors
+
+    var data = {
+      labels: senTimes1[1],
+      datasets: [{
+        label: "Data",
+        fill: true,
+        backgroundColor: gradientStroke,
+        borderColor: 'rgba(245,245,245,1)',
+        borderWidth: 2,
+        borderDash: [],
+        borderDashOffset: 0.0,
+        pointBackgroundColor: 'rgba(245,245,245,1)',
+        pointBorderColor: 'rgba(245,245,245,0)',
+        pointHoverBackgroundColor: 'rgba(245,245,245,1)',
+  
+        pointBorderWidth: 20,
+        pointHoverRadius: 4,
+        pointHoverBorderWidth: 15,
+        pointRadius: 4,
+        data: senVals1[2],
+      },{
+        label: "Data",
+        fill: true,
+        backgroundColor: gradientStroke,
+        borderColor: 'rgba(255,0,0,1)',
+        borderWidth: 2,
+        borderDash: [],
+        borderDashOffset: 0.0,
+        pointBackgroundColor: 'rgba(255,0,0,1)',
+        pointBorderColor: 'rgba(255,0,0,0)',
+        pointHoverBackgroundColor: 'rgba(255,0,0,1)',
+      
+        pointBorderWidth: 20,
+        pointHoverRadius: 4,
+        pointHoverBorderWidth: 15,
+        pointRadius: 4,
+        data: senVals1[4],
+      }
+    ]
+    };
+
+    var myChart = new Chart(ctx, {
+      type: 'line',
+      data: data,
+      options: gradientChartOptionsConfigurationWithTooltipPurple
+    });
+
     var chart_labels = senTimes1[1];
   
     
@@ -382,40 +463,6 @@ demo = {
           pointHoverBorderWidth: 15,
           pointRadius: 4,
           data: senVals1[2],
-        },
-        {
-          label: "Sensor 3",
-          fill: true,
-          backgroundColor: gradientStroke,
-          borderColor: 'rgba(113,190,198,1)',
-          borderWidth: 2,
-          borderDash: [],
-          borderDashOffset: 0.0,
-          pointBackgroundColor: 'rgba(113,190,198,1)',
-          pointBorderColor: 'rgba(113,190,198,0)',
-          pointHoverBackgroundColor: 'rgba(113,190,198,1)',
-          pointBorderWidth: 20,
-          pointHoverRadius: 4,
-          pointHoverBorderWidth: 15,
-          pointRadius: 4,
-          data: senVals1[3],
-        },
-        {
-          label: "Sensor 4",
-          fill: true,
-          backgroundColor: gradientStroke,
-          borderColor: 'rgba(10,94,134,1)',
-          borderWidth: 2,
-          borderDash: [],
-          borderDashOffset: 0.0,
-          pointBackgroundColor: 'rgba(10,94,134,1)',
-          pointBorderColor: 'rgba(10,94,134,0)',
-          pointHoverBackgroundColor: 'rgba(10,94,134,1)',
-          pointBorderWidth: 20,
-          pointHoverRadius: 4,
-          pointHoverBorderWidth: 15,
-          pointRadius: 4,
-          data: senVals1[4],
         }
       ]
       },
