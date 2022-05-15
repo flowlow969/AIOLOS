@@ -84,26 +84,26 @@ def home(request):
 
 
     for element in ampellist:
-        if "0" in element[0]:
+        if "0_M" in element[0]:
             if element[1] == 1:
                 ampellist[0][2] = 1
                 
             elif element[1] == 0:
                 continue
 
-        if "1" in element[0]:
+        if "1_M" in element[0]:
             if element[1] == 1:
                 ampellist[2][2] = 1
             elif element[1] == 0:
                 continue
 
-        if "2" in element[0]:
+        if "2_M" in element[0]:
             if element[1] == 1:
                 ampellist[5][2] = 1
             elif element[1] == 0:
                 continue
 
-        if "3" in element[0]:
+        if "3_M" in element[0]:
             if element[1] == 1:
                 ampellist[8][2] = 1
             elif element[1] == 0:
