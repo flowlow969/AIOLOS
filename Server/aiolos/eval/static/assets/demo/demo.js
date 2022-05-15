@@ -2,7 +2,8 @@
 
 setTimeout(function () {
   window.location.reload(1);
-}, 10000);
+  console.log("Demo")
+}, 10000)
 
 type = ['primary', 'info', 'success', 'warning', 'danger'];
 
@@ -297,7 +298,7 @@ demo = {
       }
     };
 
-   /* var ctx = document.getElementById("chartLinePurple").getContext("2d");
+    var ctx = document.getElementById("chartLinePurple").getContext("2d");
 
     var gradientStroke = ctx.createLinearGradient(0, 230, 0, 50);
 
@@ -306,36 +307,69 @@ demo = {
     gradientStroke.addColorStop(0, 'rgba(119,52,169,0)'); //purple colors
 
     var data = {
-      labels: ['00:20', '00:25', '00:30', '00:35', '00:40', '00:45'],
+      labels: senTimes1[1],
       datasets: [{
         label: "Data",
         fill: true,
         backgroundColor: gradientStroke,
-        borderColor: '#d048b6',
+        borderColor: 'rgba(53,126,216,1)',
         borderWidth: 2,
         borderDash: [],
         borderDashOffset: 0.0,
-        pointBackgroundColor: '#d048b6',
-        pointBorderColor: 'rgba(255,255,255,0)',
-        pointHoverBackgroundColor: '#d048b6',
+        pointBackgroundColor: 'rgba(53,126,216,1)',
+        pointBorderColor: 'rgba(53,126,216,0)',
+        pointHoverBackgroundColor: 'rgba(53,126,216,1)',
+      
         pointBorderWidth: 20,
         pointHoverRadius: 4,
         pointHoverBorderWidth: 15,
         pointRadius: 4,
-        data: [80, 100, 70, 80, 120, 80],
-      },]
+        data: senVals1[1],
+      }]
     };
-
-
-
-
 
     var myChart = new Chart(ctx, {
       type: 'line',
       data: data,
       options: gradientChartOptionsConfigurationWithTooltipPurple
     });
-*/
+
+    var ctx = document.getElementById("chartLineG").getContext("2d");
+
+    var gradientStroke = ctx.createLinearGradient(0, 230, 0, 50);
+
+    gradientStroke.addColorStop(1, 'rgba(72,72,176,0.2)');
+    gradientStroke.addColorStop(0.2, 'rgba(72,72,176,0.0)');
+    gradientStroke.addColorStop(0, 'rgba(119,52,169,0)'); //purple colors
+
+    var data = {
+      labels: senTimes1[1],
+      datasets: [{
+        label: "Data",
+        fill: true,
+        backgroundColor: gradientStroke,
+        borderColor: 'rgba(245,245,245,1)',
+        borderWidth: 2,
+        borderDash: [],
+        borderDashOffset: 0.0,
+        pointBackgroundColor: 'rgba(245,245,245,1)',
+        pointBorderColor: 'rgba(245,245,245,0)',
+        pointHoverBackgroundColor: 'rgba(245,245,245,1)',
+  
+        pointBorderWidth: 20,
+        pointHoverRadius: 4,
+        pointHoverBorderWidth: 15,
+        pointRadius: 4,
+        data: senVals1[2],
+      }]
+    };
+
+    var myChart = new Chart(ctx, {
+      type: 'line',
+      data: data,
+      options: gradientChartOptionsConfigurationWithTooltipPurple
+    });
+
     var chart_labels = senTimes1[1];
   
     

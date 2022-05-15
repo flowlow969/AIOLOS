@@ -10,7 +10,8 @@
     <a class="imager">
         <img src="/static/assets/drager.svg">
     </a>
-    <a href="#contact">Home</a>
+    <a href="{% url 'home' %}">Home</a>
+    <a href="{% url 'widget_1' %}">ESP-ID: 1</a>
 
   </div>
 <div class="container">
@@ -472,6 +473,35 @@
                 </div>
             </div>
         </div>
+        <div class="row hide_de">
+            <div class="col-lg-4 hide_de">
+              <div class="card card-chart hide_de">
+                <div class="card-header hide_de">
+                  <h5 class="card-category hide_de">Sensor 1</h5>
+                  <h3 class="card-title"><i class="tim-icons icon-bell-55 text-primary"></i> Grafik</h3>
+                </div>
+                <div class="card-body">
+                  <div class="chart-area">
+                    <canvas id="chartLinePurple"></canvas>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4">
+              <div class="card card-chart">
+                <div class="card-header">
+                  <h5 class="card-category">Sensor 2</h5>
+                  <h3 class="card-title"><i class="tim-icons icon-delivery-fast text-info"></i> Grafik</h3>
+                </div>
+                <div class="card-body">
+                  <div class="chart-area">
+                    <canvas id="chartLineG"></canvas>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
           
 
      </div>

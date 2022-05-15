@@ -1,0 +1,180 @@
+{% extends "main.html" %}
+
+{% block title %} Dashboard {% endblock %} 
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+<div class="sidenav">
+    <a class="imager">
+        <img src="/static/assets/drager.svg">
+    </a>
+    <a href="{% url 'home' %}">Home</a>
+    <a href="{% url 'widget_1' %}">ESP-ID: 1</a>
+
+  </div>
+<div class="container">
+    <div class="col-10">
+        <div class="row row-top">
+            <div class="col-7">
+                <div class="card card-chart">
+                    <div class="card-header">
+                        <div class="row">
+                            <div class="col-head text-left">
+                                <h5 class="card-category">Gaswerte</h5>
+                                <h2 class="card-title">Grafik</h2>
+                            </div>
+
+                            <div class="col-message">
+                                {% for element in widgetList %}
+                                {% if forloop.counter0 == 0 %}
+                                    {% if element == 1 %}
+                                        <p class="message alarm">Achtung</p>
+                                    {% else %}
+                                        <p class="message normal">Sollbereich</p>
+                                    {% endif %}
+                                {% endif %}
+                        {% endfor%}
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="chart-area">
+                            <canvas id="chartBig1"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-3">
+                <div class="card card-info-box">
+                    <div class="card-header">
+                        <div class="row headi">
+                            <div class="col-head text-left">
+                                <h5 class="card-category">Gaswerte</h5>
+                                <h2 class="card-title">INFO</h2>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-info">
+                        {% for esp in esp_id_list_no_dup %}
+
+                            {% if forloop.counter0 == 0 %}
+                            <div class="card-info-title">
+                                <h3>ESP-ID: {{esp}}</h3>
+                            </div>
+                
+                            {% endif %}
+                        {% endfor%}
+                        {% for sen in sensorsZero %}
+
+                        {% if forloop.counter0 == 0 %}
+                        <div class="row-sensor">
+                            <div class="warnings">
+                                {% for element in ampellist %}
+                                    {% if forloop.counter0 == 0 %}
+                                        {% if element.1 == 1 %}
+                                            <div class="warning red alarm"></div>
+                                        {% else %}
+                                        <div class="warning green"></div>
+                                        {% endif %}
+                                    {% endif %}
+                                {% endfor%}
+                                
+                            </div>
+                            <div class="sensor-col">
+                            <h4>Sensor-1-Type:</h4>
+                            <p>{{sen.gase}}</p>
+                            </div>
+                        </div>
+                        {% endif %}
+                        {% if forloop.counter0 == 1 %}
+                        <div class="row-sensor">
+                            <div class="warnings">
+                                {% for element in ampellist %}
+                                {% if forloop.counter0 == 1 %}
+                                    {% if element.1 == 1 %}
+                                        <div class="warning red alarm"></div>
+                                    {% else %}
+                                        <div class="warning green"></div>
+                                    {% endif %}
+                                {% endif %}
+                            {% endfor%}
+                            </div>
+                            <div class="sensor-col">
+                            <h4>Sensor-2-Type:</h4>
+                            <p>{{sen.gase}}</p>
+                            </div>
+                        </div>
+                        
+                        {% endif %}
+                        {% if forloop.counter0 == 2 %}
+                        <div class="row-sensor">
+                            <div class="warnings">
+                            </div>
+                            <div class="sensor-col">
+                            <h4>Sensor-3-Type:</h4>
+                            <p>{{sen.gase}}</p>
+                            </div>
+                        </div>
+                        {% endif %}
+                        
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4">
+              <div class="card card-chart">
+                <div class="card-header">
+                  <h5 class="card-category">Sensor 1</h5>
+                  <h3 class="card-title"><i class="tim-icons icon-bell-55 text-primary"></i> Grafik</h3>
+                </div>
+                <div class="card-body">
+                  <div class="chart-area">
+                    <canvas id="chartLinePurple"></canvas>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4">
+              <div class="card card-chart">
+                <div class="card-header">
+                  <h5 class="card-category">Sensor 2</h5>
+                  <h3 class="card-title"><i class="tim-icons icon-delivery-fast text-info"></i> Grafik</h3>
+                </div>
+                <div class="card-body">
+                  <div class="chart-area">
+                    <canvas id="chartLineG"></canvas>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+          
+
+     </div>
+
+</div>
+   
+{{ sen_liste|json_script:"sen_liste" }}
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}
+
+  <script>
+
+    $(document).ready(function() {
+
+      // Javascript method's body can be found in assets/js/demos.js
+      demo.initDashboardPageCharts();
+
+    });
+  </script>
+
+{% endblock javascripts %}
