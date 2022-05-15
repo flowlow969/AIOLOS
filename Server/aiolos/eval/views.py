@@ -29,7 +29,7 @@ def home(request):
 
     datenobj = Daten.objects.all()
     s_flag = 0
-    schwell_flag = 0
+    schwell_flag = 1
     for sen in sensors:
       
         dataset = sen.daten_set.all()
@@ -76,31 +76,37 @@ def home(request):
 
 
     print(ampellist)
+    first = "0_MQ-135"
+    second = "1_MQ-135"
+    third = "2_MQ-4"
+    fourth = "3_MQ-135"
+
+
 
     for element in ampellist:
         if "0" in element[0]:
-            if element[1] == 1:
+            if element[1] == 0:
                 continue
-            elif element[1] == 0:
-                element[2] = 0
+            elif element[1] == 1:
+                ampellist[0][2] = 1
 
         if "1" in element[0]:
-            if element[1] == 1:
+            if element[1] == 0:
                 continue
-            elif element[1] == 0:
-                element[2] = 0
+            elif element[1] == 1:
+                ampellist[2][2] = 1
 
         if "2" in element[0]:
-            if element[1] == 1:
+            if element[1] == 0:
                 continue
-            elif element[1] == 0:
-                element[2] = 0
+            elif element[1] == 1:
+                ampellist[5][2] = 1
 
         if "3" in element[0]:
-            if element[1] == 1:
+            if element[1] == 0:
                 continue
-            elif element[1] == 0:
-                element[2] = 0
+            elif element[1] == 1:
+               ampellist[8][2] = 1
 
 
     print(ampellist)
