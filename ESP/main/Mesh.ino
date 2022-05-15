@@ -1,7 +1,7 @@
 #include "painlessMesh.h"
-#include "configs/Device_config0.h"
-//include "configs/Device_config1.h"
-//#include "configs/Device_config2.h"
+//#include "configs/Device_config0.h"
+//#include "configs/Device_config1.h"
+#include "configs/Device_config2.h"
 //#include "configs/Device_config3.h"
 
 
