@@ -202,10 +202,10 @@ a > img {
   background-color: rgba(255,0,0,1);
 }
 .warning.yellow{
-  background-color: rgba(255, 255, 0, 0.1);
+  background-color: rgba(255, 255, 0, 1);
 }
 .warnings > .warning.green{
-  background-color: rgba(0,128,0,0.1);
+  background-color: rgba(0,128,0,1);
 }
 .col-message {
   color: rgba(255,0,0,1);

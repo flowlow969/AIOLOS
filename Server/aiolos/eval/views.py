@@ -28,6 +28,7 @@ def home(request):
 
 
     datenobj = Daten.objects.all()
+    s_flag = 0
     for sen in sensors:
       
         dataset = sen.daten_set.all()
@@ -49,32 +50,64 @@ def home(request):
             schwellwert = get_schwellwert(sen_type)
             if schwellwert - data.messwert > 0:
                 ampel = 0
+                
             else:
                 ampel = 1
-            
-            
+                schwell_flag = 1
+                if s_flag == 1:
 
-                 
+                    schwell_flag = 0
+                    s_flag = 1
                  
             data_liste.append([data.messwert, data.time_recorded])
     
         sen_liste.append(data_liste)
-        ampellist.append([sen.esbid_type, ampel])
+        ampellist.append([sen.esbid_type,ampel, schwell_flag])
+        
+        
         print(ampellist)
         data_liste = []
-        ampellist = []
+        
 
         for i in esp_id_liste:
             if i not in esp_id_liste_no_dup:
                 esp_id_liste_no_dup.append(i)
 
 
-    print(sen_liste)
+    print(ampellist)
+
+    for element in ampellist:
+        if "0" in element[0]:
+            if element[1] == 1:
+                continue
+            elif element[1] == 0:
+                element[2] = 0
+                
+        if "1" in element[0]:
+            if element[1] == 1:
+                continue
+            elif element[1] == 0:
+                element[2] = 0
+
+        if "2" in element[0]:
+            if element[1] == 1:
+                continue
+            elif element[1] == 0:
+                element[2] = 0
+
+        if "3" in element[0]:
+            if element[1] == 1:
+                continue
+            elif element[1] == 0:
+                element[2] = 0
 
 
-    
+    print(ampellist)
 
-    return render(request, 'home.html', {"sen_liste": sen_liste, 'esp_id_list_no_dup': esp_id_liste_no_dup, 'sensors': sensors, 'sensorsZero': sensorsZero, 'sensorsOne': sensorsOne, 'sensorsTwo': sensorsTwo, 'sensorsThree': sensorsThree, 'ampellist' :ampellist })  #alle ids als liste,   
+
+
+
+    return render(request, 'home.html', {"sen_liste": sen_liste, 'esp_id_list_no_dup': esp_id_liste_no_dup, 'sensors': sensors, 'sensorsZero': sensorsZero, 'sensorsOne': sensorsOne, 'sensorsTwo': sensorsTwo, 'sensorsThree': sensorsThree, 'ampellist' : ampellist })  #alle ids als liste,   
 
 
 @csrf_exempt

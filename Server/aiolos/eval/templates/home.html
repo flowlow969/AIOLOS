@@ -26,7 +26,16 @@
                             </div>
 
                             <div class="col-message">
-                                <p class="message alarm">Achtung</p>
+                                {% for element in ampellist %}
+                                    {% if forloop.counter0 == 0 %}
+                                        {% if element.1 == 1 %}
+                                            <p class="message alarm">Achtung</p>
+                                        {% else %}
+                                            <p class="message normal">Sollbereich</p>
+                                        {% endif %}
+                                    {% endif %}
+                            {% endfor%}
+                                
                             </div>
                         </div>
                     </div>
@@ -62,7 +71,16 @@
                         {% if forloop.counter0 == 0 %}
                         <div class="row-sensor">
                             <div class="warnings">
-                                <div class="warning red"></div>
+                                {% for element in ampellist %}
+                                    {% if forloop.counter0 == 0 %}
+                                        {% if element.1 == 1 %}
+                                            <div class="warning red"></div>
+                                        {% else %}
+                                        <div class="warning green"></div>
+                                        {% endif %}
+                                    {% endif %}
+                                {% endfor%}
+                                
                             </div>
                             <div class="sensor-col">
                             <h4>Sensor-1-Type:</h4>
@@ -73,7 +91,15 @@
                         {% if forloop.counter0 == 1 %}
                         <div class="row-sensor">
                             <div class="warnings">
-                                <div class="warning red"></div>
+                                {% for element in ampellist %}
+                                {% if forloop.counter0 == 1 %}
+                                    {% if element.1 == 1 %}
+                                        <div class="warning red"></div>
+                                    {% else %}
+                                        <div class="warning green"></div>
+                                    {% endif %}
+                                {% endif %}
+                            {% endfor%}
                             </div>
                             <div class="sensor-col">
                             <h4>Sensor-2-Type:</h4>
@@ -85,7 +111,6 @@
                         {% if forloop.counter0 == 2 %}
                         <div class="row-sensor">
                             <div class="warnings">
-                                <div class="warning red"></div>
                             </div>
                             <div class="sensor-col">
                             <h4>Sensor-3-Type:</h4>
@@ -110,7 +135,15 @@
                             </div>
 
                             <div class="col-message">
-                                <p class="message normal">Sollbereich</p>
+                                {% for element in ampellist %}
+                                {% if forloop.counter0 == 2 %}
+                                    {% if element.1 == 1 %}
+                                        <p class="message alarm">Achtung</p>
+                                    {% else %}
+                                        <p class="message normal">Sollbereich</p>
+                                    {% endif %}
+                                {% endif %}
+                        {% endfor%}
                             </div>
                         </div>
                     </div>
@@ -123,6 +156,7 @@
             </div>
             <div class="col-3">
                 <div class="card card-info-box">
+
                     <div class="card-header">
                         <div class="row headi">
                             <div class="col-head text-left">
@@ -145,7 +179,15 @@
                     {% if forloop.counter0 == 0 %}
                     <div class="row-sensor">
                         <div class="warnings">
-                            <div class="warning red"></div>
+                            {% for element in ampellist %}
+                            {% if forloop.counter0 == 2 %}
+                                {% if element.1 == 1 %}
+                                    <div class="warning red"></div>
+                                {% else %}
+                                    <div class="warning green"></div>
+                                {% endif %}
+                            {% endif %}
+                        {% endfor%}
                         </div>
                         <div class="sensor-col">
                         <h4>Sensor-1-Type:</h4>
@@ -156,7 +198,15 @@
                     {% if forloop.counter0 == 1 %}
                     <div class="row-sensor">
                         <div class="warnings">
-                            <div class="warning red"></div>
+                            {% for element in ampellist %}
+                            {% if forloop.counter0 == 3 %}
+                                {% if element.1 == 1 %}
+                                    <div class="warning red"></div>
+                                {% else %}
+                                    <div class="warning green"></div>
+                                {% endif %}
+                            {% endif %}
+                        {% endfor%}
                         </div>
                         <div class="sensor-col">
                         <h4>Sensor-2-Type:</h4>
@@ -167,7 +217,15 @@
                     {% if forloop.counter0 == 2 %}
                     <div class="row-sensor">
                         <div class="warnings">
-                            <div class="warning red"></div>
+                            {% for element in ampellist %}
+                            {% if forloop.counter0 == 4 %}
+                                {% if element.1 == 1 %}
+                                    <div class="warning red"></div>
+                                {% else %}
+                                    <div class="warning green"></div>
+                                {% endif %}
+                            {% endif %}
+                        {% endfor%}
                         </div>
                         <div class="sensor-col">
                         <h4>Sensor-3-Type:</h4>
@@ -192,7 +250,15 @@
                             </div>
 
                             <div class="col-message">
-                                <p class="message normal">Sollbereich</p>
+                                {% for element in ampellist %}
+                                {% if forloop.counter0 == 5 %}
+                                    {% if element.1 == 1 %}
+                                        <p class="message alarm">Achtung</p>
+                                    {% else %}
+                                        <p class="message normal">Sollbereich</p>
+                                    {% endif %}
+                                {% endif %}
+                        {% endfor%}
                             </div>
                         </div>
                     </div>
@@ -227,7 +293,15 @@
                     {% if forloop.counter0 == 0 %}
                     <div class="row-sensor">
                         <div class="warnings">
-                            <div class="warning red"></div>
+                            {% for element in ampellist %}
+                            {% if forloop.counter0 == 5 %}
+                                {% if element.1 == 1 %}
+                                    <div class="warning red"></div>
+                                {% else %}
+                                    <div class="warning green"></div>
+                                {% endif %}
+                            {% endif %}
+                        {% endfor%}
                         </div>
                         <div class="sensor-col">
                         <h4>Sensor-1-Type:</h4>
@@ -238,7 +312,15 @@
                     {% if forloop.counter0 == 1 %}
                     <div class="row-sensor">
                         <div class="warnings">
-                            <div class="warning red"></div>
+                            {% for element in ampellist %}
+                            {% if forloop.counter0 == 6 %}
+                                {% if element.1 == 1 %}
+                                    <div class="warning red"></div>
+                                {% else %}
+                                    <div class="warning green"></div>
+                                {% endif %}
+                            {% endif %}
+                        {% endfor%}
                         </div>
                         <div class="sensor-col">
                         <h4>Sensor-2-Type:</h4>
@@ -249,7 +331,15 @@
                     {% if forloop.counter0 == 2 %}
                     <div class="row-sensor">
                         <div class="warnings">
-                            <div class="warning red"></div>
+                            {% for element in ampellist %}
+                            {% if forloop.counter0 == 7 %}
+                                {% if element.1 == 1 %}
+                                    <div class="warning red"></div>
+                                {% else %}
+                                    <div class="warning green"></div>
+                                {% endif %}
+                            {% endif %}
+                        {% endfor%}
                         </div>
                         <div class="sensor-col">
                         <h4>Sensor-3-Type:</h4>
@@ -274,7 +364,15 @@
                             </div>
 
                             <div class="col-message">
-                                <p class="message alarm">Achtung</p>
+                                {% for element in ampellist %}
+                                {% if forloop.counter0 == 8 %}
+                                    {% if element.1 == 1 %}
+                                        <p class="message alarm">Achtung</p>
+                                    {% else %}
+                                        <p class="message normal">Sollbereich</p>
+                                    {% endif %}
+                                {% endif %}
+                        {% endfor%}
                             </div>
                         </div>
                     </div>
@@ -285,8 +383,10 @@
                     </div>
                 </div>
             </div>
+            
             <div class="col-3">
                 <div class="card card-info-box">
+
                     <div class="card-header">
                         <div class="row headi">
                             <div class="col-head text-left">
@@ -304,12 +404,21 @@
                         </div>
                         {% endif %}
                     {% endfor %}
+                    
                     {% for sen in sensorsThree %}
 
                     {% if forloop.counter0 == 0 %}
                     <div class="row-sensor">
                         <div class="warnings">
-                            <div class="warning red"></div>
+                            {% for element in ampellist %}
+                            {% if forloop.counter0 == 8 %}
+                                {% if element.1 == 1 %}
+                                    <div class="warning red"></div>
+                                {% else %}
+                                    <div class="warning green"></div>
+                                {% endif %}
+                            {% endif %}
+                        {% endfor%}
                         </div>
                         <div class="sensor-col">
                         <h4>Sensor-1-Type:</h4>
@@ -320,7 +429,15 @@
                     {% if forloop.counter0 == 1 %}
                     <div class="row-sensor">
                         <div class="warnings">
-                            <div class="warning red"></div>
+                            {% for element in ampellist %}
+                            {% if forloop.counter0 == 9 %}
+                                {% if element.1 == 1 %}
+                                    <div class="warning red"></div>
+                                {% else %}
+                                    <div class="warning green"></div>
+                                {% endif %}
+                            {% endif %}
+                        {% endfor%}
                         </div>
                         <div class="sensor-col">
                         <h4>Sensor-2-Type:</h4>
@@ -331,7 +448,15 @@
                     {% if forloop.counter0 == 2 %}
                     <div class="row-sensor">
                         <div class="warnings">
-                            <div class="warning red"></div>
+                            {% for element in ampellist %}
+                            {% if forloop.counter0 == 10 %}
+                                {% if element.1 == 1 %}
+                                    <div class="warning red"></div>
+                                {% else %}
+                                    <div class="warning green"></div>
+                                {% endif %}
+                            {% endif %}
+                        {% endfor%}
                         </div>
                         <div class="sensor-col">
                         <h4>Sensor-3-Type:</h4>
@@ -350,6 +475,7 @@
           
 
      </div>
+
 </div>
    
 {{ sen_liste|json_script:"sen_liste" }}
