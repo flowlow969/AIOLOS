@@ -85,7 +85,8 @@ demo = {
     lengthVals = sensorVals.length;
 
     console.log(lengthVals);
-
+    var curarray = [];
+    var curarray2 = [];
     for (let i = 0; i < lengthVals; i++) {
 
       if(sensorVals[i][0] == 0) {
@@ -98,6 +99,7 @@ demo = {
         
         var temparray = [];
         var timetemparray = [];
+        
 
         for (let j = 0; j < lengthSensorTimeValues; j++) {
           console.log(sensorTimeValues[j][0]);
@@ -110,10 +112,14 @@ demo = {
           var temp = timetemparray[k].slice(14,-5)
           timeCutarray.push(temp);
         }
-
+        for (let w = 0; w < lengthSensorTimeValues; w++) {
+          curarray.push(800)
+          curarray2.push(200)
+        }
         senVals1.push(temparray);
         senTimes1.push(timeCutarray);
         console.log(senVals1);
+
         
       }
       
@@ -202,8 +208,10 @@ demo = {
 
       }
 
-    }   
-    
+    } 
+    senVals1.push(curarray);  
+    senVals1.push(curarray2); 
+
     gradientChartOptionsConfigurationWithTooltipPurple = {
       maintainAspectRatio: false,
       legend: {
@@ -325,7 +333,26 @@ demo = {
         pointHoverBorderWidth: 15,
         pointRadius: 4,
         data: senVals1[1],
-      }]
+      },
+      {
+        label: "Data",
+        fill: true,
+        backgroundColor: gradientStroke,
+        borderColor: 'rgba(255,0,0,1)',
+        borderWidth: 2,
+        borderDash: [],
+        borderDashOffset: 0.0,
+        pointBackgroundColor: 'rgba(255,0,0,1)',
+        pointBorderColor: 'rgba(255,0,0,0)',
+        pointHoverBackgroundColor: 'rgba(255,0,0,1)',
+      
+        pointBorderWidth: 20,
+        pointHoverRadius: 4,
+        pointHoverBorderWidth: 15,
+        pointRadius: 4,
+        data: senVals1[3],
+      }
+    ]
     };
 
     var myChart = new Chart(ctx, {
@@ -361,7 +388,25 @@ demo = {
         pointHoverBorderWidth: 15,
         pointRadius: 4,
         data: senVals1[2],
-      }]
+      },{
+        label: "Data",
+        fill: true,
+        backgroundColor: gradientStroke,
+        borderColor: 'rgba(255,0,0,1)',
+        borderWidth: 2,
+        borderDash: [],
+        borderDashOffset: 0.0,
+        pointBackgroundColor: 'rgba(255,0,0,1)',
+        pointBorderColor: 'rgba(255,0,0,0)',
+        pointHoverBackgroundColor: 'rgba(255,0,0,1)',
+      
+        pointBorderWidth: 20,
+        pointHoverRadius: 4,
+        pointHoverBorderWidth: 15,
+        pointRadius: 4,
+        data: senVals1[4],
+      }
+    ]
     };
 
     var myChart = new Chart(ctx, {
@@ -418,40 +463,6 @@ demo = {
           pointHoverBorderWidth: 15,
           pointRadius: 4,
           data: senVals1[2],
-        },
-        {
-          label: "Sensor 3",
-          fill: true,
-          backgroundColor: gradientStroke,
-          borderColor: 'rgba(113,190,198,1)',
-          borderWidth: 2,
-          borderDash: [],
-          borderDashOffset: 0.0,
-          pointBackgroundColor: 'rgba(113,190,198,1)',
-          pointBorderColor: 'rgba(113,190,198,0)',
-          pointHoverBackgroundColor: 'rgba(113,190,198,1)',
-          pointBorderWidth: 20,
-          pointHoverRadius: 4,
-          pointHoverBorderWidth: 15,
-          pointRadius: 4,
-          data: senVals1[3],
-        },
-        {
-          label: "Sensor 4",
-          fill: true,
-          backgroundColor: gradientStroke,
-          borderColor: 'rgba(10,94,134,1)',
-          borderWidth: 2,
-          borderDash: [],
-          borderDashOffset: 0.0,
-          pointBackgroundColor: 'rgba(10,94,134,1)',
-          pointBorderColor: 'rgba(10,94,134,0)',
-          pointHoverBackgroundColor: 'rgba(10,94,134,1)',
-          pointBorderWidth: 20,
-          pointHoverRadius: 4,
-          pointHoverBorderWidth: 15,
-          pointRadius: 4,
-          data: senVals1[4],
         }
       ]
       },
