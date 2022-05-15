@@ -1,6 +1,8 @@
  
 
-
+setTimeout(function () {
+  window.location.reload(1);
+}, 10000);
 
 type = ['primary', 'info', 'success', 'warning', 'danger'];
 
