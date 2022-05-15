@@ -29,6 +29,7 @@ def home(request):
 
     datenobj = Daten.objects.all()
     s_flag = 0
+    schwell_flag = 0
     for sen in sensors:
       
         dataset = sen.daten_set.all()
@@ -82,7 +83,7 @@ def home(request):
                 continue
             elif element[1] == 0:
                 element[2] = 0
-                
+
         if "1" in element[0]:
             if element[1] == 1:
                 continue
