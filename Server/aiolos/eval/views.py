@@ -30,7 +30,7 @@ def home(request):
     datenobj = Daten.objects.all()
     prev_esp_num = None
     for sen in sensors:
-        dataset = sen.daten_set.all()
+        dataset = sen.daten_set.all().order_by('-id')[:20:-1]
         sen_info = sen.esbid_type.split("_")
         esp_num = int(sen_info[0])
         sen_type = sen_info[1]
@@ -112,7 +112,7 @@ def widget_1(request):
     datenobj = Daten.objects.all()
     prev_esp_num = None
     for sen in sensors:
-        dataset = sen.daten_set.all()
+        dataset = sen.daten_set.all().order_by('-id')[:20:-1]
         sen_info = sen.esbid_type.split("_")
         esp_num = int(sen_info[0])
         sen_type = sen_info[1]
