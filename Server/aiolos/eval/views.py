@@ -28,44 +28,40 @@ def home(request):
 
 
     datenobj = Daten.objects.all()
-    s_flag = 0
-    schwell_flag = 1
+    prev_esp_num = None
     for sen in sensors:
-      
         dataset = sen.daten_set.all()
- 
+        sen_info = sen.esbid_type.split("_")
+        esp_num = int(sen_info[0])
+        sen_type = sen_info[1]
+        if prev_esp_num != esp_num:
+            s_flag = 0
+            prev_esp_num = esp_num
         flag = 0
         for data in dataset:
-            sen_info = sen.esbid_type.split("_")
-            esp_num = int(sen_info[0])
-            sen_type = sen_info[1]
-
             if flag == 0:
                 data_liste.append(esp_num)
                 data_liste.append(sen_type)
                 data_liste.append(sen.gase)
                 esp_id_liste.append(esp_num)
                 flag = 1
-
-
+            
             schwellwert = get_schwellwert(sen_type)
+            
             if schwellwert - data.messwert > 0:
                 ampel = 0
-                
+                schwell_flag = 0
             else:
                 ampel = 1
-                schwell_flag = 1
-                if s_flag == 1:
-
-                    schwell_flag = 0
+                if s_flag == 0:
+                    schwell_flag = 1
                     s_flag = 1
-                 
+
             data_liste.append([data.messwert, data.time_recorded])
-    
+
         sen_liste.append(data_liste)
-        ampellist.append([sen.esbid_type,ampel, schwell_flag])
-        
-        
+        ampellist.append([sen.esbid_type, ampel, schwell_flag])
+        schwell_flag = 0
         print(ampellist)
         data_liste = []
         
@@ -74,48 +70,24 @@ def home(request):
             if i not in esp_id_liste_no_dup:
                 esp_id_liste_no_dup.append(i)
 
-
-    print(ampellist)
-    first = "0_MQ-135"
-    second = "1_MQ-135"
-    third = "2_MQ-4"
-    fourth = "3_MQ-135"
-
-
+    widgetList = [0,0,0,0]
 
     for element in ampellist:
-        if "0_M" in element[0]:
-            if element[1] == 1:
-                ampellist[0][2] = 1
-                
-            elif element[1] == 0:
-                continue
-
-        if "1_M" in element[0]:
-            if element[1] == 1:
-                ampellist[2][2] = 1
-            elif element[1] == 0:
-                continue
-
-        if "2_M" in element[0]:
-            if element[1] == 1:
-                ampellist[5][2] = 1
-            elif element[1] == 0:
-                continue
-
-        if "3_M" in element[0]:
-            if element[1] == 1:
-                ampellist[8][2] = 1
-            elif element[1] == 0:
-               continue
-
-
-    print(ampellist)
-
-
-
-
-    return render(request, 'home.html', {"sen_liste": sen_liste, 'esp_id_list_no_dup': esp_id_liste_no_dup, 'sensors': sensors, 'sensorsZero': sensorsZero, 'sensorsOne': sensorsOne, 'sensorsTwo': sensorsTwo, 'sensorsThree': sensorsThree, 'ampellist' : ampellist })  #alle ids als liste,   
+        if element[1] == 1 and '0_MQ-' in element[0]:
+            widgetList[0] = 1
+            print("1 FÜR WIDGET 0 ")
+        if element[1] == 1 and "1_MQ-" in element[0]:
+            widgetList[1] = 1
+            print("1 FÜR WIDGET 1 ")
+        if element[1] == 1 and "2_MQ-" in element[0]:
+            widgetList[2] = 1
+            print("1 FÜR WIDGET 2 ")
+        if element[1] == 1 and "3_MQ-" in element[0]:
+            widgetList[3] = 1
+            print("1 FÜR WIDGET 3 ")
+        
+    print(widgetList)
+    return render(request, 'home.html', {"sen_liste": sen_liste, 'esp_id_list_no_dup': esp_id_liste_no_dup, 'sensors': sensors, 'sensorsZero': sensorsZero, 'sensorsOne': sensorsOne, 'sensorsTwo': sensorsTwo, 'sensorsThree': sensorsThree, 'ampellist' :ampellist, 'widgetList':widgetList })  #alle ids als liste,   
 
 
 @csrf_exempt

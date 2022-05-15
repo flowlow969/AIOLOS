@@ -26,15 +26,15 @@
                             </div>
 
                             <div class="col-message">
-                                {% for element in ampellist %}
-                                    {% if forloop.counter0 == 0 %}
-                                        {% if element.1 == 1 %}
-                                            <p class="message alarm">Achtung</p>
-                                        {% else %}
-                                            <p class="message normal">Sollbereich</p>
-                                        {% endif %}
+                                {% for element in widgetList %}
+                                {% if forloop.counter0 == 0 %}
+                                    {% if element == 1 %}
+                                        <p class="message alarm">Achtung</p>
+                                    {% else %}
+                                        <p class="message normal">Sollbereich</p>
                                     {% endif %}
-                            {% endfor%}
+                                {% endif %}
+                        {% endfor%}
                                 
                             </div>
                         </div>
@@ -63,7 +63,7 @@
                             <div class="card-info-title">
                                 <h3>ESP-ID: {{esp}}</h3>
                             </div>
-                    
+                
                             {% endif %}
                         {% endfor%}
                         {% for sen in sensorsZero %}
@@ -74,7 +74,7 @@
                                 {% for element in ampellist %}
                                     {% if forloop.counter0 == 0 %}
                                         {% if element.1 == 1 %}
-                                            <div class="warning red"></div>
+                                            <div class="warning red alarm"></div>
                                         {% else %}
                                         <div class="warning green"></div>
                                         {% endif %}
@@ -94,7 +94,7 @@
                                 {% for element in ampellist %}
                                 {% if forloop.counter0 == 1 %}
                                     {% if element.1 == 1 %}
-                                        <div class="warning red"></div>
+                                        <div class="warning red alarm"></div>
                                     {% else %}
                                         <div class="warning green"></div>
                                     {% endif %}
@@ -135,9 +135,9 @@
                             </div>
 
                             <div class="col-message">
-                                {% for element in ampellist %}
-                                {% if forloop.counter0 == 2 %}
-                                    {% if element.1 == 1 %}
+                                {% for element in widgetList %}
+                                {% if forloop.counter0 == 1 %}
+                                    {% if element == 1 %}
                                         <p class="message alarm">Achtung</p>
                                     {% else %}
                                         <p class="message normal">Sollbereich</p>
@@ -182,7 +182,7 @@
                             {% for element in ampellist %}
                             {% if forloop.counter0 == 2 %}
                                 {% if element.1 == 1 %}
-                                    <div class="warning red"></div>
+                                    <div class="warning red alarm"></div>
                                 {% else %}
                                     <div class="warning green"></div>
                                 {% endif %}
@@ -201,7 +201,7 @@
                             {% for element in ampellist %}
                             {% if forloop.counter0 == 3 %}
                                 {% if element.1 == 1 %}
-                                    <div class="warning red"></div>
+                                    <div class="warning red alarm"></div>
                                 {% else %}
                                     <div class="warning green"></div>
                                 {% endif %}
@@ -220,7 +220,7 @@
                             {% for element in ampellist %}
                             {% if forloop.counter0 == 4 %}
                                 {% if element.1 == 1 %}
-                                    <div class="warning red"></div>
+                                    <div class="warning red alarm"></div>
                                 {% else %}
                                     <div class="warning green"></div>
                                 {% endif %}
@@ -250,9 +250,9 @@
                             </div>
 
                             <div class="col-message">
-                                {% for element in ampellist %}
-                                {% if forloop.counter0 == 5 %}
-                                    {% if element.1 == 1 %}
+                                {% for element in widgetList %}
+                                {% if forloop.counter0 == 2 %}
+                                    {% if element == 1 %}
                                         <p class="message alarm">Achtung</p>
                                     {% else %}
                                         <p class="message normal">Sollbereich</p>
@@ -296,7 +296,7 @@
                             {% for element in ampellist %}
                             {% if forloop.counter0 == 5 %}
                                 {% if element.1 == 1 %}
-                                    <div class="warning red"></div>
+                                    <div class="warning red alarm"></div>
                                 {% else %}
                                     <div class="warning green"></div>
                                 {% endif %}
@@ -315,7 +315,7 @@
                             {% for element in ampellist %}
                             {% if forloop.counter0 == 6 %}
                                 {% if element.1 == 1 %}
-                                    <div class="warning red"></div>
+                                    <div class="warning red alarm"></div>
                                 {% else %}
                                     <div class="warning green"></div>
                                 {% endif %}
@@ -334,7 +334,7 @@
                             {% for element in ampellist %}
                             {% if forloop.counter0 == 7 %}
                                 {% if element.1 == 1 %}
-                                    <div class="warning red"></div>
+                                    <div class="warning red alarm"></div>
                                 {% else %}
                                     <div class="warning green"></div>
                                 {% endif %}
@@ -364,9 +364,9 @@
                             </div>
 
                             <div class="col-message">
-                                {% for element in ampellist %}
-                                {% if forloop.counter0 == 8 %}
-                                    {% if element.1 == 1 %}
+                                {% for element in widgetList %}
+                                {% if forloop.counter0 == 3 %}
+                                    {% if element == 1 %}
                                         <p class="message alarm">Achtung</p>
                                     {% else %}
                                         <p class="message normal">Sollbereich</p>
@@ -413,7 +413,7 @@
                             {% for element in ampellist %}
                             {% if forloop.counter0 == 8 %}
                                 {% if element.1 == 1 %}
-                                    <div class="warning red"></div>
+                                    <div class="warning red alarm"></div>
                                 {% else %}
                                     <div class="warning green"></div>
                                 {% endif %}
@@ -432,7 +432,7 @@
                             {% for element in ampellist %}
                             {% if forloop.counter0 == 9 %}
                                 {% if element.1 == 1 %}
-                                    <div class="warning red"></div>
+                                    <div class="warning red alarm"></div>
                                 {% else %}
                                     <div class="warning green"></div>
                                 {% endif %}
@@ -451,7 +451,7 @@
                             {% for element in ampellist %}
                             {% if forloop.counter0 == 10 %}
                                 {% if element.1 == 1 %}
-                                    <div class="warning red"></div>
+                                    <div class="warning red alarm"></div>
                                 {% else %}
                                     <div class="warning green"></div>
                                 {% endif %}
